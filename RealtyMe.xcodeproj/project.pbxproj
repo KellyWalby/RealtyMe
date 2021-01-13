@@ -3,27 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055E076425AE73CB00EC8455 /* realtymelogo.jpg */; };
+		055E076925AE86B500EC8455 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 055E076825AE86B400EC8455 /* GoogleService-Info.plist */; };
 		3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532725AE0A730041A10B /* AppDelegate.swift */; };
 		3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532925AE0A730041A10B /* SceneDelegate.swift */; };
 		3B65532C25AE0A730041A10B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532B25AE0A730041A10B /* ViewController.swift */; };
 		3B65532F25AE0A730041A10B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B65532D25AE0A730041A10B /* Main.storyboard */; };
 		3B65533125AE0A750041A10B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B65533025AE0A750041A10B /* Assets.xcassets */; };
-		3B65533425AE0A750041A10B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B65533225AE0A750041A10B /* LaunchScreen.storyboard */; };
 		A87C1B56B46A9269A2D4B22F /* Pods_RealtyMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF3DD6791548DD051E1713 /* Pods_RealtyMe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		055E076425AE73CB00EC8455 /* realtymelogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realtymelogo.jpg; sourceTree = "<group>"; };
+		055E076825AE86B400EC8455 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B65532425AE0A730041A10B /* RealtyMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtyMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B65532725AE0A730041A10B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B65532925AE0A730041A10B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3B65532B25AE0A730041A10B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B65532E25AE0A730041A10B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B65533025AE0A750041A10B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B65533325AE0A750041A10B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B65533525AE0A750041A10B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71E747C8C9233C0CB96683D6 /* Pods-RealtyMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtyMe.release.xcconfig"; path = "Target Support Files/Pods-RealtyMe/Pods-RealtyMe.release.xcconfig"; sourceTree = "<group>"; };
 		EC3B5057A9764D3BB124947B /* Pods-RealtyMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtyMe.debug.xcconfig"; path = "Target Support Files/Pods-RealtyMe/Pods-RealtyMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,8 +70,9 @@
 				3B65532B25AE0A730041A10B /* ViewController.swift */,
 				3B65532D25AE0A730041A10B /* Main.storyboard */,
 				3B65533025AE0A750041A10B /* Assets.xcassets */,
-				3B65533225AE0A750041A10B /* LaunchScreen.storyboard */,
 				3B65533525AE0A750041A10B /* Info.plist */,
+				055E076825AE86B400EC8455 /* GoogleService-Info.plist */,
+				055E076425AE73CB00EC8455 /* realtymelogo.jpg */,
 			);
 			path = RealtyMe;
 			sourceTree = "<group>";
@@ -80,7 +83,6 @@
 				EC3B5057A9764D3BB124947B /* Pods-RealtyMe.debug.xcconfig */,
 				71E747C8C9233C0CB96683D6 /* Pods-RealtyMe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,9 +154,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B65533425AE0A750041A10B /* LaunchScreen.storyboard in Resources */,
 				3B65533125AE0A750041A10B /* Assets.xcassets in Resources */,
+				055E076925AE86B500EC8455 /* GoogleService-Info.plist in Resources */,
 				3B65532F25AE0A730041A10B /* Main.storyboard in Resources */,
+				055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,14 +225,6 @@
 				3B65532E25AE0A730041A10B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3B65533225AE0A750041A10B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B65533325AE0A750041A10B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -355,6 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RealtyMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RealtyMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
