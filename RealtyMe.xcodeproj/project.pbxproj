@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055E076425AE73CB00EC8455 /* realtymelogo.jpg */; };
-		3B292C5625B7C05A00889837 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B292C5525B7C05A00889837 /* GoogleService-Info.plist */; };
+		05A1B32625BA5092008F2A99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05A1B32525BA5092008F2A99 /* GoogleService-Info.plist */; };
 		3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532725AE0A730041A10B /* AppDelegate.swift */; };
 		3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532925AE0A730041A10B /* SceneDelegate.swift */; };
 		3B65532C25AE0A730041A10B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532B25AE0A730041A10B /* ViewController.swift */; };
@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		055E076425AE73CB00EC8455 /* realtymelogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realtymelogo.jpg; sourceTree = "<group>"; };
-		3B292C5525B7C05A00889837 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05A1B32525BA5092008F2A99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B65532425AE0A730041A10B /* RealtyMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtyMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B65532725AE0A730041A10B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B65532925AE0A730041A10B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 				3B65532925AE0A730041A10B /* SceneDelegate.swift */,
 				3B65532B25AE0A730041A10B /* ViewController.swift */,
 				3B65532D25AE0A730041A10B /* Main.storyboard */,
-				3B292C5525B7C05A00889837 /* GoogleService-Info.plist */,
 				3B65533025AE0A750041A10B /* Assets.xcassets */,
+				05A1B32525BA5092008F2A99 /* GoogleService-Info.plist */,
 				3B65533525AE0A750041A10B /* Info.plist */,
 				055E076425AE73CB00EC8455 /* realtymelogo.jpg */,
 			);
@@ -155,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B65533125AE0A750041A10B /* Assets.xcassets in Resources */,
-				3B292C5625B7C05A00889837 /* GoogleService-Info.plist in Resources */,
+				05A1B32625BA5092008F2A99 /* GoogleService-Info.plist in Resources */,
 				3B65532F25AE0A730041A10B /* Main.storyboard in Resources */,
 				055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */,
 			);
