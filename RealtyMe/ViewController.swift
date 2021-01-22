@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
 class ViewController: UIViewController {
     var ref: DatabaseReference!
@@ -17,6 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
+        [GIDSignIn, sharedInstance].presentingViewController = self;
+        [[GIDSignIn, sharedInstance], signIn];
     }
 
 }

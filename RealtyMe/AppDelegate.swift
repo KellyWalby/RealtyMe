@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        // Use Firebase library to configure API
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         // Override point for customization after application launch.
         return true
     }
@@ -33,7 +38,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
 
 }
+//----------------------GOOGLE OAUTH----------------------
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {}
 
+@available(iOS 9.0, *)
+func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+  -> Bool {
+  return GIDSignIn.sharedInstance().handle(url)
+}
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+  // ...
+  if (error == nil) {
+    GIDAuthentication *authentication = user.authentication;
+    FIRAuthCredential *credential =
+    [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                     accessToken:authentication.accessToken];
+    // ...
+  } else {
+    // ...
+  }
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+  // Perform any operations when the user disconnects from app here.
+  // ...
+}
