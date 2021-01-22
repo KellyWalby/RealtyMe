@@ -18,8 +18,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
-        [GIDSignIn, sharedInstance].presentingViewController = self;
-        [[GIDSignIn, sharedInstance], signIn];
     }
 
 }
