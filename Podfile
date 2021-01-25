@@ -9,10 +9,8 @@ target 'RealtyMe' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Core'
- 
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
-  # Pods for RealtyMe
 
 end
 

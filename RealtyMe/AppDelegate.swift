@@ -17,16 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        GIDSignIn.SharedInstance()?.clientID = "799364371623-oo4pq9fbuvdn2vbeeii6c4dqhccia0vi.apps.googleusercontent.com"
-        GIDSignIn.SharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.clientID = "799364371623-oo4pq9fbuvdn2vbeeii6c4dqhccia0vi.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.delegate = self
         
         // Override point for customization after application launch.
         return true
     }
-    func sign(  signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("User Email = \(user.profile.email ?? "No Email")")
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
