@@ -153,6 +153,11 @@
                                     <segue destination="wxx-Bb-Aby" kind="show" id="Aup-eK-nTd"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Qp-v3-5wD" customClass="GIDSignInButton">
+                                <rect key="frame" x="87" y="376" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jvG-72-1UK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
