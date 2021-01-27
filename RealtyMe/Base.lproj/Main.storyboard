@@ -133,9 +133,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6Q-pM-hwW">
-                                <rect key="frame" x="71" y="711" width="271" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6Q-pM-hwW">
+                                <rect key="frame" x="109.5" y="715" width="195" height="42"/>
                                 <color key="backgroundColor" red="0.43515038620000002" green="0.0051939546139999999" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Sign up with email">
@@ -150,9 +149,8 @@
                                     <segue destination="wxx-Bb-Aby" kind="show" id="Aup-eK-nTd"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHL-hK-Qwa" customClass="GIDSignInButton">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c51-eH-bct" customClass="GIDSignInButton">
                                 <rect key="frame" x="87" y="410" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -160,12 +158,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="b4C-Cw-b3d" firstAttribute="centerY" secondItem="i3c-Jj-qSO" secondAttribute="centerY" constant="-121.5" id="2xw-wp-JjB"/>
+                            <constraint firstItem="c51-eH-bct" firstAttribute="leading" secondItem="jvG-72-1UK" secondAttribute="leading" constant="87" id="3aL-5m-kAx"/>
+                            <constraint firstItem="c51-eH-bct" firstAttribute="centerY" secondItem="i3c-Jj-qSO" secondAttribute="centerY" constant="26" id="8fr-Oc-hhf"/>
                             <constraint firstItem="uUw-b5-eJX" firstAttribute="top" secondItem="jvG-72-1UK" secondAttribute="top" constant="30" id="BMN-Pk-9xK"/>
+                            <constraint firstItem="N6Q-pM-hwW" firstAttribute="centerY" secondItem="i3c-Jj-qSO" secondAttribute="centerY" constant="288" id="MT4-yd-5Jk"/>
                             <constraint firstItem="yLw-yP-ydS" firstAttribute="centerY" secondItem="i3c-Jj-qSO" secondAttribute="centerY" constant="-83.5" id="SEO-rh-S0H"/>
                             <constraint firstItem="yLw-yP-ydS" firstAttribute="centerX" secondItem="i3c-Jj-qSO" secondAttribute="centerX" id="Voq-Sx-guz"/>
                             <constraint firstItem="uUw-b5-eJX" firstAttribute="centerX" secondItem="i3c-Jj-qSO" secondAttribute="centerX" id="aZP-il-ik5"/>
+                            <constraint firstItem="c51-eH-bct" firstAttribute="top" secondItem="yLw-yP-ydS" secondAttribute="bottom" constant="35" id="oEo-RN-uFa"/>
                             <constraint firstItem="uUw-b5-eJX" firstAttribute="centerY" secondItem="i3c-Jj-qSO" secondAttribute="centerY" constant="-188" id="pSN-RS-s24"/>
                             <constraint firstItem="b4C-Cw-b3d" firstAttribute="centerX" secondItem="i3c-Jj-qSO" secondAttribute="centerX" id="uiZ-Ri-DpH"/>
+                            <constraint firstItem="c51-eH-bct" firstAttribute="centerX" secondItem="i3c-Jj-qSO" secondAttribute="centerX" id="zgm-RK-O3m"/>
+                            <constraint firstItem="N6Q-pM-hwW" firstAttribute="centerX" secondItem="i3c-Jj-qSO" secondAttribute="centerX" id="zzi-Vm-nfn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0ou-gb-FbV"/>

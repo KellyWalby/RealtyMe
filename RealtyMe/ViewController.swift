@@ -11,9 +11,10 @@ import Firebase
 import FirebaseDatabase
 import GoogleSignIn
 
+
+
 class ViewController: UIViewController {
     
-    @IBOutlet var signInButton: GIDSignInButton!
     
     var ref: DatabaseReference!
     
@@ -23,7 +24,6 @@ class ViewController: UIViewController {
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        
     }
 
 }
