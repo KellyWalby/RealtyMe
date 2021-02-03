@@ -66,9 +66,12 @@
                                     <constraint firstItem="mlr-ej-SDh" firstAttribute="height" secondItem="bfk-Xe-4p8" secondAttribute="height" id="KCx-z3-0G5"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jf6-pZ-kD9" customClass="GIDSignInButton">
-                                <rect key="frame" x="40" y="410" width="334" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jf6-pZ-kD9" customClass="GIDSignInButton">
+                                <rect key="frame" x="40" y="410" width="334" height="130"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="2HC-97-XVh"/>
+                                </constraints>
                                 <connections>
                                     <action selector="GoogleSignInButtonTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="euN-tn-p8z"/>
                                 </connections>
@@ -168,7 +171,7 @@
                                             <action selector="signUpTapped:" destination="wxx-Bb-Aby" eventType="touchUpInside" id="dpw-0l-pHr"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggy-EY-yl1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggy-EY-yl1">
                                         <rect key="frame" x="0.0" y="340" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.55426466460000001" green="0.15349715950000001" blue="0.1529164314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -263,7 +266,7 @@
                                             <action selector="loginButtonTapped:" destination="zI3-St-4tI" eventType="touchUpInside" id="ahT-aD-9Ov"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL3-le-j1k">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL3-le-j1k">
                                         <rect key="frame" x="0.0" y="210" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.55426466460000001" green="0.15349715950000001" blue="0.1529164314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

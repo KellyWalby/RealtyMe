@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -35,19 +36,50 @@ class LoginViewController: UIViewController {
         Utilities.styleFilledButton(loginButton)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //checks to make sure info is correct
+    func validateFields() -> String?{
+        
+        //checks that all fields are filled in
+        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill in all fields."
+        }
+        return nil
     }
-    */
+    
     
     
     @IBAction func loginButtonTapped(_ sender: Any) {
+        //validate text fields
+        let error = validateFields()
+        
+        if error != nil {
+            //Something wrong with the fields
+            showError(error!)
+        } else {
+            //create cleaned versions of text fields
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            //signing in user
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if error != nil{
+                    //Couldnt sign in
+                    self.showError(error!.localizedDescription) //see what localized description does
+                } else {
+                    self.transitionToHome()
+            }
+        }
+        }
     }
     
+    func showError(_ message:String){
+        errorLabel.text = message //creates error message
+        errorLabel.alpha = 1 //shows message to user
+}
+    func transitionToHome(){
+        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
+    }
 }
