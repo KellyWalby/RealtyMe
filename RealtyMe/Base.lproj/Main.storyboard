@@ -330,7 +330,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2779" y="193"/>
+            <point key="canvasLocation" x="3249" y="210"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="pgp-WO-jbm">
+            <objects>
+                <viewController id="zRK-ST-ZeO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r2E-o9-SdU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Google User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mj-4i-9yG">
+                                <rect key="frame" x="119.5" y="437.5" width="175" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dje-YT-qPo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Mj-4i-9yG" firstAttribute="centerY" secondItem="r2E-o9-SdU" secondAttribute="centerY" id="QTt-5U-uvo"/>
+                            <constraint firstItem="6Mj-4i-9yG" firstAttribute="centerX" secondItem="r2E-o9-SdU" secondAttribute="centerX" id="wjx-gW-Xd7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="4g4-B7-AUL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8m-2e-8u0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5104" y="-558"/>
+        </scene>
+        <!--Tab Bar Conroller-->
+        <scene sceneID="J3L-e2-hn5">
+            <objects>
+                <tabBarController storyboardIdentifier="TabbarIdentifier" id="TTp-Ba-xtg" customClass="TabBarConroller" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MJF-9t-B8U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zRK-ST-ZeO" kind="relationship" relationship="viewControllers" id="NZ7-kw-GKj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="378-Co-Nam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4197" y="-150"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="roP-GV-00J">

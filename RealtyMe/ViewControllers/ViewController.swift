@@ -43,10 +43,16 @@ class ViewController: UIViewController {
 
     //maybe so they can move onto the home screen??
     @IBAction func GoogleSignInButtonTapped(_ sender: Any) {
-        //check if user has an account
-            //if not create new user
-                //save data to db
-        //go to home screen
+        //check if google user has account. If yes, transition to home screen
+        transitionToHome()
+        //if not, transition to create account then transition to home screen
+}
+    func transitionToHome(){
+        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
     }
+    
 }
 
