@@ -96,10 +96,10 @@ class SignUpViewController: UIViewController {
                 }
                 else {
                     //user was created successfully, now store information
+                    let uid = Auth.auth().currentUser!.uid
                     let db = Firestore.firestore()
-                    
-                    let newuser = db.collection("users").document()
-                    newuser.setData(["firstName":firstName,"lastName":lastName,"zipCode":zipCode, "uid":result!.user.uid, "id":newuser.documentID]) {(error) in
+                    let newuser = db.collection("users").document(uid)
+                    newuser.setData(["firstName":firstName,"lastName":lastName,"zipCode":zipCode, "uid":result!.user.uid]) {(error) in
                         if error != nil{
                             self.showError("Error saving user data.")
                         }
@@ -112,6 +112,7 @@ class SignUpViewController: UIViewController {
             }
             
         }
+        
         
         
     }

@@ -34,7 +34,6 @@ class AccountViewController: UIViewController {
             getName { (name) in
                 if let name = name {
                     self.profileName.text = name
-                    self.profileName.alpha = 1 //shows message to user
                 }
             }
     }
@@ -45,7 +44,7 @@ class AccountViewController: UIViewController {
                 completion(nil) // user is not logged in; return nil
                 return
             }
-            Firestore.firestore().collection("users").document("id").getDocument { (docSnapshot, error) in
+        Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
                 if let doc = docSnapshot {
                     if let name = doc.get("firstName") as? String {
                         completion(name) // success; return name
