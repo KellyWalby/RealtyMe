@@ -21,12 +21,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var GoogleSignInButton: GIDSignInButton!
     
     //variable to reference to db
-    var ref: DatabaseReference!
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         //calls function to style UI
@@ -48,6 +47,7 @@ class ViewController: UIViewController {
         transitionToHome()
         //if not, transition to create account then transition to home screen
 }
+    
 func transitionToHome(){
     let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
     

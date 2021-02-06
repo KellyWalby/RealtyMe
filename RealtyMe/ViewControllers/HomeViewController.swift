@@ -10,15 +10,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    
     @IBOutlet weak var HomeToolbarButton: UIBarButtonItem!
-    
-
     @IBOutlet weak var MessageToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var NotificationToolbarButton: UIBarButtonItem!
     
     @IBOutlet weak var AccountToolbarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var NotificationToolbarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,4 +34,13 @@ class HomeViewController: UIViewController {
     }
     */
 
+
+//    @IBAction func AccountToolbarButtonTapped(_ sender: Any) {
+//        
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//
+//        let accountView = storyboard.instantiateViewController(identifier: Constants.Storyboard.accountViewController) as? AccountViewController
+//        self.present(accountView!, animated: true, completion: nil)
+//    }
+    
 }
