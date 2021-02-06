@@ -306,6 +306,22 @@
             </objects>
             <point key="canvasLocation" x="1951" y="526"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wj9-PD-vkn">
+            <objects>
+                <navigationController id="so4-Ky-gbg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="66M-Iv-3Jq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dKn-Iq-olY" kind="relationship" relationship="rootViewController" id="F9Z-YC-agp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aw7-3C-MP3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3041" y="155"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="v7O-rl-7oh">
             <objects>
@@ -315,67 +331,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Testing" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXg-9g-oPE">
-                                <rect key="frame" x="163.5" y="431" width="87" height="34"/>
+                                <rect key="frame" x="162" y="431" width="90" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="bIE-Uj-ocK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQw-h2-ehN">
+                                <rect key="frame" x="0.0" y="837" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem image="homekit" catalog="system" id="5QC-2u-U0v" userLabel="HomeToolbarButton"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3xW-ac-Qzk"/>
+                                    <barButtonItem image="message" catalog="system" id="Dct-Po-L9J" userLabel="MessageToolbarButton"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KWd-zV-RJ4"/>
+                                    <barButtonItem image="bell.badge" catalog="system" id="G7m-SW-e24" userLabel="NotificationToolbarButton"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xxz-nC-3R7"/>
+                                    <barButtonItem image="person" catalog="system" id="juM-nV-DLj" userLabel="AccountToolbarButton">
+                                        <connections>
+                                            <action selector="AccountToolbarButtonTapped:" destination="dKn-Iq-olY" id="qKB-RW-dfw"/>
+                                            <segue destination="jqw-2a-aTN" kind="show" id="eql-Zk-jm2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="B1o-NN-zHK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pXg-9g-oPE" firstAttribute="centerY" secondItem="dN6-Io-s3i" secondAttribute="centerY" id="B2U-Lx-CTw"/>
-                            <constraint firstItem="pXg-9g-oPE" firstAttribute="centerX" secondItem="dN6-Io-s3i" secondAttribute="centerX" id="jca-xL-20M"/>
+                            <constraint firstAttribute="bottom" secondItem="LQw-h2-ehN" secondAttribute="bottom" constant="10" id="THS-TB-HQS"/>
+                            <constraint firstItem="pXg-9g-oPE" firstAttribute="centerY" secondItem="dN6-Io-s3i" secondAttribute="centerY" id="cUe-to-gR7"/>
+                            <constraint firstItem="LQw-h2-ehN" firstAttribute="leading" secondItem="B1o-NN-zHK" secondAttribute="leading" id="oUy-EE-u3u"/>
+                            <constraint firstItem="pXg-9g-oPE" firstAttribute="centerX" secondItem="dN6-Io-s3i" secondAttribute="centerX" id="q8L-xc-dwc"/>
+                            <constraint firstAttribute="trailing" secondItem="LQw-h2-ehN" secondAttribute="trailing" id="w9Y-Yo-XhC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HaW-b5-Mzn"/>
+                    <connections>
+                        <outlet property="AccountToolbarButton" destination="juM-nV-DLj" id="wx2-lm-bOv"/>
+                        <outlet property="HomeToolbarButton" destination="5QC-2u-U0v" id="krS-Ie-bB1"/>
+                        <outlet property="MessageToolbarButton" destination="Dct-Po-L9J" id="C0H-65-jPy"/>
+                        <outlet property="NotificationToolbarButton" destination="G7m-SW-e24" id="VdH-oI-j0h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3249" y="210"/>
+            <point key="canvasLocation" x="3883" y="155"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="pgp-WO-jbm">
+        <!--Account View Controller-->
+        <scene sceneID="Usw-sQ-zYk">
             <objects>
-                <viewController id="zRK-ST-ZeO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r2E-o9-SdU">
+                <viewController storyboardIdentifier="AccountVC" id="jqw-2a-aTN" customClass="AccountViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KXV-hS-CIh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Google User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mj-4i-9yG">
-                                <rect key="frame" x="119.5" y="437.5" width="175" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="dje-YT-qPo"/>
+                        <viewLayoutGuide key="safeArea" id="qkl-p0-IlH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Mj-4i-9yG" firstAttribute="centerY" secondItem="r2E-o9-SdU" secondAttribute="centerY" id="QTt-5U-uvo"/>
-                            <constraint firstItem="6Mj-4i-9yG" firstAttribute="centerX" secondItem="r2E-o9-SdU" secondAttribute="centerX" id="wjx-gW-Xd7"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="4g4-B7-AUL"/>
+                    <navigationItem key="navigationItem" id="DfL-6y-BHl"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z8m-2e-8u0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMa-jA-4oy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5104" y="-558"/>
-        </scene>
-        <!--Tab Bar Conroller-->
-        <scene sceneID="J3L-e2-hn5">
-            <objects>
-                <tabBarController storyboardIdentifier="TabbarIdentifier" id="TTp-Ba-xtg" customClass="TabBarConroller" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MJF-9t-B8U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="zRK-ST-ZeO" kind="relationship" relationship="viewControllers" id="NZ7-kw-GKj"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="378-Co-Nam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4197" y="-150"/>
+            <point key="canvasLocation" x="4693" y="746"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="roP-GV-00J">
@@ -397,7 +415,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bell.badge" catalog="system" width="128" height="124"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="realtymelogo.jpg" width="144" height="86.400001525878906"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

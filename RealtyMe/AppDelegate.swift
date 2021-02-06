@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        
         // Override point for customization after application launch.
         return true
     }
@@ -28,10 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
           //transition to home screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
-            self.window?.rootViewController = homeViewController
-            self.window?.makeKeyAndVisible()
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
+//            self.window!.rootViewController = homeViewController
+//            self.window!.makeKeyAndVisible()
+            print(user.profile.email) //prints user email
         } else {
           print("\(error.localizedDescription)")
         }

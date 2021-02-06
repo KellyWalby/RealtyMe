@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055E076425AE73CB00EC8455 /* realtymelogo.jpg */; };
+		3B619E0425CE112C0095FEF6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B619E0325CE112C0095FEF6 /* AccountViewController.swift */; };
 		3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532725AE0A730041A10B /* AppDelegate.swift */; };
 		3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532925AE0A730041A10B /* SceneDelegate.swift */; };
 		3B65532C25AE0A730041A10B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532B25AE0A730041A10B /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		055E076425AE73CB00EC8455 /* realtymelogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realtymelogo.jpg; sourceTree = "<group>"; };
+		3B619E0325CE112C0095FEF6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3B65532425AE0A730041A10B /* RealtyMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtyMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B65532725AE0A730041A10B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B65532925AE0A730041A10B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				3BBF648125CA108F00F5DC6A /* LoginViewController.swift */,
 				3BBF648425CA10A300F5DC6A /* HomeViewController.swift */,
 				3B65532B25AE0A730041A10B /* ViewController.swift */,
+				3B619E0325CE112C0095FEF6 /* AccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */,
 				3BBF648525CA10A300F5DC6A /* HomeViewController.swift in Sources */,
 				3BA76F2625CA3B5C00F2EF74 /* Constants.swift in Sources */,
+				3B619E0425CE112C0095FEF6 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

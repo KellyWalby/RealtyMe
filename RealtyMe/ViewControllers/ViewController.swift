@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(LogInButton)
     }
+    
 
     //maybe so they can move onto the home screen??
     @IBAction func GoogleSignInButtonTapped(_ sender: Any) {
@@ -47,12 +48,12 @@ class ViewController: UIViewController {
         transitionToHome()
         //if not, transition to create account then transition to home screen
 }
-    func transitionToHome(){
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
-    }
+func transitionToHome(){
+    let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+    
+    view.window?.rootViewController = homeViewController
+    view.window?.makeKeyAndVisible()
+        }
     
 }
 

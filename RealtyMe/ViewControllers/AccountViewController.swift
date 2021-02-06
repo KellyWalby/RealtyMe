@@ -1,31 +1,20 @@
 //
-//  HomeViewController.swift
+//  AccountViewController.swift
 //  RealtyMe
 //
-//  Created by Kelly Walby on 2/2/21.
+//  Created by Kelly Walby on 2/5/21.
 //  Copyright © 2021 Kelly Walby. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class AccountViewController: UIViewController {
 
-    
-    @IBOutlet weak var HomeToolbarButton: UIBarButtonItem!
-    
-
-    @IBOutlet weak var MessageToolbarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var AccountToolbarButton: UIBarButtonItem!
-    
-    @IBOutlet weak var NotificationToolbarButton: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
     
 
     /*
