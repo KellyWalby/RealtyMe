@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var forgotPassButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class LoginViewController: UIViewController {
         //styling elements
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
+        Utilities.styleHollowButton(forgotPassButton)
         Utilities.styleFilledButton(loginButton)
     }
     
