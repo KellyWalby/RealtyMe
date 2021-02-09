@@ -15,11 +15,11 @@ class SignUpViewController: UIViewController {
     //outlets that connect UI to code
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +37,8 @@ class SignUpViewController: UIViewController {
         //styling elements
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
-        Utilities.styleTextField(firstNameTextField)
-        Utilities.styleTextField(lastNameTextField)
+        Utilities.styleTextField(nameTextField)
         Utilities.styleTextField(zipcodeTextField)
-        
         Utilities.styleFilledButton(signUpButton)
     }
     
@@ -50,7 +48,7 @@ class SignUpViewController: UIViewController {
     func validateFields() -> String?{
         
         //checks that all fields are filled in
-        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || zipcodeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || zipcodeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
             return "Please fill in all fields."
         }
@@ -79,8 +77,7 @@ class SignUpViewController: UIViewController {
         }
         else {
             //create cleaned versions of the data
-            let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let userName = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let zipCode = zipcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -99,7 +96,7 @@ class SignUpViewController: UIViewController {
                     let uid = Auth.auth().currentUser!.uid
                     let db = Firestore.firestore()
                     let newuser = db.collection("users").document(uid)
-                    newuser.setData(["firstName":firstName,"lastName":lastName,"zipCode":zipCode, "uid":result!.user.uid]) {(error) in
+                    newuser.setData(["name":userName,"zipCode":zipCode, "uid":result!.user.uid]) {(error) in
                         if error != nil{
                             self.showError("Error saving user data.")
                         }

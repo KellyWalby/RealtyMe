@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //            let homeViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
 //            self.window!.rootViewController = homeViewController
 //            self.window!.makeKeyAndVisible()
-            print(user.profile.email) //prints user email
+            //print(user.profile.email) //prints user email
         } else {
           print("\(error.localizedDescription)")
         }

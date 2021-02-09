@@ -15,17 +15,22 @@ import Firebase
 class AccountViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var profileName: UILabel!
-    
+    @IBOutlet weak var bioTextView: UITextView!
     //reference to firestore db
     let db = Firestore.firestore()
     
     //current users iud which allows us to retrieve their data
     let id = Auth.auth().currentUser!.uid
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //style UI elements
+        Utilities.styleTextView(bioTextView)
+        
+        bioTextView.isEditable = false
  
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +51,7 @@ class AccountViewController: UIViewController {
             }
         Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
                 if let doc = docSnapshot {
-                    if let name = doc.get("firstName") as? String {
+                    if let name = doc.get("name") as? String {
                         completion(name) // success; return name
                     } else {
                         print("error getting field")
