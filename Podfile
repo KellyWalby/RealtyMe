@@ -12,6 +12,7 @@ target 'RealtyMe' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
 end
 

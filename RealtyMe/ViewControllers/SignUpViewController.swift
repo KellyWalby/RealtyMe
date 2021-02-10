@@ -19,6 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(passwordTextField)
         Utilities.styleTextField(nameTextField)
         Utilities.styleTextField(zipcodeTextField)
+        Utilities.styleTextField(usernameTextField)
         Utilities.styleFilledButton(signUpButton)
     }
     
@@ -48,7 +50,7 @@ class SignUpViewController: UIViewController {
     func validateFields() -> String?{
         
         //checks that all fields are filled in
-        if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || zipcodeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || zipcodeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
             return "Please fill in all fields."
         }
@@ -81,6 +83,7 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let zipCode = zipcodeTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             
             //create user
@@ -96,7 +99,7 @@ class SignUpViewController: UIViewController {
                     let uid = Auth.auth().currentUser!.uid
                     let db = Firestore.firestore()
                     let newuser = db.collection("users").document(uid)
-                    newuser.setData(["name":userName,"zipCode":zipCode, "uid":result!.user.uid]) {(error) in
+                    newuser.setData(["name":userName,"zipCode":zipCode, "username": username, "uid":result!.user.uid]) {(error) in
                         if error != nil{
                             self.showError("Error saving user data.")
                         }
