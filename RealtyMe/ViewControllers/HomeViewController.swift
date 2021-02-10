@@ -9,12 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    @IBOutlet weak var HomeToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var MessageToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var NotificationToolbarButton: UIBarButtonItem!
     
-    @IBOutlet weak var AccountToolbarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,10 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-
-//    @IBAction func AccountToolbarButtonTapped(_ sender: Any) {
-//        
-//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//
-//        let accountView = storyboard.instantiateViewController(identifier: Constants.Storyboard.accountViewController) as? AccountViewController
-//        self.present(accountView!, animated: true, completion: nil)
-//    }
+    
+    
+    @IBAction func accountToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "AccountSegue", sender: nil)
+    }
     
 }

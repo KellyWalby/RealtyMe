@@ -33,7 +33,7 @@ class forgotPassViewController: UIViewController {
         
         if error != nil {
             //Something wrong with the fields
-            showError(error!)
+            self.showError(error!)
         } else {
             let auth = Auth.auth()
             auth.sendPasswordReset(withEmail: emailTextField.text!) { (error) in
@@ -59,7 +59,6 @@ class forgotPassViewController: UIViewController {
     func showError(_ message:String){
         errorLabel.text = message //creates error message
         errorLabel.alpha = 1 //shows message to user
-        
 }
     func showMessage(){
         confirmationMessage.text = "A password reset email has to be sent!" //create confirmation message

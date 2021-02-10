@@ -105,8 +105,8 @@ class SignUpViewController: UIViewController {
                         }
                     }
                     //adds id to their account info & transition to home screen
-                    self.transitionToHome()
-                    
+                    //self.transitionToHome()
+                    self.performSegue(withIdentifier: "signUpSegue" , sender: nil)
                 }
                 
             }
@@ -116,11 +116,12 @@ class SignUpViewController: UIViewController {
         
         
     }
+    
     func showError(_ message:String){
         errorLabel.text = message //creates error message
         errorLabel.alpha = 1 //shows message to user
-        
 }
+    
     func transitionToHome(){
         let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
         

@@ -38,6 +38,11 @@ class LoginViewController: UIViewController {
         Utilities.styleFilledButton(loginButton)
     }
     
+    
+    @IBAction func forgotPassButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
+    }
+    
     //checks to make sure info is correct
     func validateFields() -> String?{
         
@@ -57,7 +62,7 @@ class LoginViewController: UIViewController {
         
         if error != nil {
             //Something wrong with the fields
-            showError(error!)
+            self.showError(error!)
         } else {
             //create cleaned versions of text fields
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -68,7 +73,8 @@ class LoginViewController: UIViewController {
                     //Couldnt sign in
                     self.showError(error!.localizedDescription) //see what localized description does
                 } else {
-                    self.transitionToHome()
+                    self.performSegue(withIdentifier: "logInSegue", sender: nil)
+                    //self.transitionToHome()
             }
         }
         }
@@ -78,6 +84,7 @@ class LoginViewController: UIViewController {
         errorLabel.text = message //creates error message
         errorLabel.alpha = 1 //shows message to user
 }
+    
     func transitionToHome(){
         let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
         

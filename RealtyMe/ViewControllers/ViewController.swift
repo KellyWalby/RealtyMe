@@ -48,6 +48,16 @@ class ViewController: UIViewController {
         //if not, transition to create account then transition to home screen
 }
     
+    
+    @IBAction func SignUpButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "signUpSegueVC" , sender: nil)
+    }
+    
+    @IBAction func logInButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "logInSegueVC" , sender: nil)
+    }
+    
+    
 func transitionToHome(){
     let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
     
