@@ -11,7 +11,6 @@ import Firebase
 
 
 
-
 class AccountViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
