@@ -9,7 +9,14 @@
 import UIKit
 
 class notifViewController: UIViewController {
-
+    
+    
+    
+    @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +33,21 @@ class notifViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func homeToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "NotifToHomeSegue", sender: nil)
+    }
+    
+    @IBAction func messageToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "NotifToMessageSegue", sender: nil)
+    }
+    
+    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
+        //do nothing since it is already here
+    }
+    
+    @IBAction func accountToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "NotifToAccountSegue", sender: nil)
+    }
 }

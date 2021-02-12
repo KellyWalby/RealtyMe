@@ -57,6 +57,10 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "logInSegueVC" , sender: nil)
     }
     
+    @IBAction func googleSignInButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "GoogleToHomeSegue", sender: nil)
+    }
+    
     
 func transitionToHome(){
     let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController

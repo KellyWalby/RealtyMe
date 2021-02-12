@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,8 +37,21 @@ class HomeViewController: UIViewController {
     */
     
     
+    @IBAction func homeToolbarButtonTapped(_ sender: Any) {
+        //do nothing, already here
+    }
+    
+    @IBAction func messageToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "HomeToMessageSegue", sender: nil)
+    }
+    
+    
+    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "HomeToNotifSegue", sender: nil)
+    }
+    
     @IBAction func accountToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "AccountSegue", sender: nil)
+        self.performSegue(withIdentifier: "HomeToAccountSegue", sender: nil)
     }
     
 }

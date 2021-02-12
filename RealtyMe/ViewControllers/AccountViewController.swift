@@ -17,6 +17,12 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var settingsButton: UIButton!
+    
     
     //reference to firestore db
     let db = Firestore.firestore()
@@ -97,5 +103,29 @@ class AccountViewController: UIViewController {
                 }
             }
         }
+    
+    
+    @IBAction func homeToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "AccountToHomeSegue", sender: nil)
+    }
+    
+    
+    @IBAction func messageToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "AccountToMessageSegue", sender: nil)
+    }
+    
+    
+    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "AccountToNotifSegue", sender: nil)
+    }
+    
+    @IBAction func accountToolbarButtonTapped(_ sender: Any) {
+        //already here, do nothing
+    }
+    
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "AccountToSettingsSegue", sender: nil)
+    }
 }
 
