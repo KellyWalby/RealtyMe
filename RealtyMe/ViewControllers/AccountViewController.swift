@@ -54,6 +54,11 @@ class AccountViewController: UIViewController {
                 self.username.text = "@" + name
             }
         }
+        getBio { (bio) in
+            if let bio = bio {
+                self.bioTextView.text = bio
+            }
+            }
     }
     
     //function to retrieve user's name from db to display on user's profile
@@ -93,6 +98,29 @@ class AccountViewController: UIViewController {
                         completion(name) // success; return name
                     } else {
                         print("error getting field")
+                        completion(nil) // error getting field; return nil
+                    }
+                } else {
+                    if let error = error {
+                        print(error)
+                    }
+                    completion(nil) // error getting document; return nil
+                }
+            }
+        }
+    
+    //function to retrieve username from db to display on user's profile
+    func getBio(completion: @escaping (_ name: String?) -> Void) {
+            guard let uid = Auth.auth().currentUser?.uid // safely unwrap the uid; avoid force unwrapping with !
+            else{
+                completion(nil) // user is not logged in; return nil
+                return
+            }
+        Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
+                if let doc = docSnapshot {
+                    if let name = doc.get("bio") as? String {
+                        completion(name) // success; return name
+                    } else {
                         completion(nil) // error getting field; return nil
                     }
                 } else {

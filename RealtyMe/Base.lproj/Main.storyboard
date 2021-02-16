@@ -622,21 +622,108 @@
             </objects>
             <point key="canvasLocation" x="5453.6231884057979" y="901.33928571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Account Settings View Controller-->
         <scene sceneID="dTH-jC-ZpB">
             <objects>
-                <viewController id="AZu-8D-Fjh" sceneMemberID="viewController">
+                <viewController id="AZu-8D-Fjh" customClass="AccountSettingsViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwJ-FT-brJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Fem-3O-8rr">
+                                <rect key="frame" x="20" y="73" width="374" height="715"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bio" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ld7-Sa-g8f">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLC-cW-dKG">
+                                        <rect key="frame" x="0.0" y="105" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="dkU-z1-Ofx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="43g-S4-Erg">
+                                        <rect key="frame" x="0.0" y="185" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GOt-OH-1ha">
+                                        <rect key="frame" x="0.0" y="265" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zipcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eNv-Jl-QER">
+                                        <rect key="frame" x="0.0" y="345" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oht-Cx-cbW">
+                                        <rect key="frame" x="0.0" y="425" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trH-D9-UGQ">
+                                        <rect key="frame" x="0.0" y="505" width="374" height="50"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveAccountSettingsButtonTapped:" destination="AZu-8D-Fjh" eventType="touchUpInside" id="1xO-Tw-YP9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zo-BR-VtX">
+                                        <rect key="frame" x="0.0" y="585" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohc-Bt-48k">
+                                        <rect key="frame" x="0.0" y="665" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.55036312340000004" green="0.15348792080000001" blue="0.1529168487" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ld7-Sa-g8f" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" multiplier="1.5" id="Cia-n1-w30"/>
+                                    <constraint firstItem="eNv-Jl-QER" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="Jzl-ac-0Qa"/>
+                                    <constraint firstItem="GOt-OH-1ha" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="KFg-lY-xzp"/>
+                                    <constraint firstItem="Oht-Cx-cbW" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="VCG-Wg-eAA"/>
+                                    <constraint firstItem="trH-D9-UGQ" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="a9f-9t-I1N"/>
+                                    <constraint firstItem="Ohc-Bt-48k" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="iRP-BR-PBQ"/>
+                                    <constraint firstItem="43g-S4-Erg" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="yeK-X1-pEQ"/>
+                                    <constraint firstItem="2zo-BR-VtX" firstAttribute="height" secondItem="FLC-cW-dKG" secondAttribute="height" id="zmp-Ll-pJE"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PWz-WL-4ow"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fem-3O-8rr" firstAttribute="leading" secondItem="PWz-WL-4ow" secondAttribute="leading" constant="20" id="AHt-UP-Vyr"/>
+                            <constraint firstItem="PWz-WL-4ow" firstAttribute="trailing" secondItem="Fem-3O-8rr" secondAttribute="trailing" constant="20" id="BxQ-zP-7Kd"/>
+                            <constraint firstItem="PWz-WL-4ow" firstAttribute="bottom" secondItem="Fem-3O-8rr" secondAttribute="bottom" constant="20" id="MHQ-83-IoS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ajy-vU-RmC"/>
+                    <connections>
+                        <outlet property="accountBioTextView" destination="ld7-Sa-g8f" id="bS7-Pk-0lI"/>
+                        <outlet property="confirmationLabel" destination="2zo-BR-VtX" id="6ol-8i-ppE"/>
+                        <outlet property="errorLabel" destination="Ohc-Bt-48k" id="SHd-wv-Ldz"/>
+                        <outlet property="profileEmail" destination="GOt-OH-1ha" id="NVZ-1i-Qv9"/>
+                        <outlet property="profileName" destination="FLC-cW-dKG" id="982-8I-AaH"/>
+                        <outlet property="profilePhoneNumber" destination="Oht-Cx-cbW" id="ZLb-2k-ogj"/>
+                        <outlet property="profileUsername" destination="43g-S4-Erg" id="JdB-gn-ICg"/>
+                        <outlet property="profileZipcode" destination="eNv-Jl-QER" id="wBF-86-FHs"/>
+                        <outlet property="saveAccountSettingsButton" destination="trH-D9-UGQ" id="JjG-yi-8KI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNd-b4-9bB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6259" y="901"/>
+            <point key="canvasLocation" x="6257.971014492754" y="900.66964285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="roP-GV-00J">

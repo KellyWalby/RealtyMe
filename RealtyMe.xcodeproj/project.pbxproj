@@ -22,6 +22,7 @@
 		3BBF647F25CA107B00F5DC6A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */; };
 		3BBF648225CA108F00F5DC6A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF648125CA108F00F5DC6A /* LoginViewController.swift */; };
 		3BBF648525CA10A300F5DC6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF648425CA10A300F5DC6A /* HomeViewController.swift */; };
+		3BE0DD3525DB335900B7F5FF /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */; };
 		3BFDD6EB25CA1AA7008395BC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDD6EA25CA1AA7008395BC /* Utilities.swift */; };
 		A87C1B56B46A9269A2D4B22F /* Pods_RealtyMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF3DD6791548DD051E1713 /* Pods_RealtyMe.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3BBF648125CA108F00F5DC6A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBF648425CA10A300F5DC6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		3BFDD6EA25CA1AA7008395BC /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		71E747C8C9233C0CB96683D6 /* Pods-RealtyMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtyMe.release.xcconfig"; path = "Target Support Files/Pods-RealtyMe/Pods-RealtyMe.release.xcconfig"; sourceTree = "<group>"; };
 		EC3B5057A9764D3BB124947B /* Pods-RealtyMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtyMe.debug.xcconfig"; path = "Target Support Files/Pods-RealtyMe/Pods-RealtyMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				3B60879325D1D2D400C4183C /* notifViewController.swift */,
 				3B60879725D1D2E300C4183C /* messageViewController.swift */,
 				3B619E0325CE112C0095FEF6 /* AccountViewController.swift */,
+				3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE0DD3525DB335900B7F5FF /* AccountSettingsViewController.swift in Sources */,
 				3B65532C25AE0A730041A10B /* ViewController.swift in Sources */,
 				3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */,
 				3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */,
