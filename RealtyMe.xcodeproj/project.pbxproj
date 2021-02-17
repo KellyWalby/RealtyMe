@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055E076425AE73CB00EC8455 /* realtymelogo.jpg */; };
+		056AEE8A25DC99A800A0951B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056AEE8925DC99A800A0951B /* GoogleService-Info.plist */; };
 		3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */; };
 		3B60879425D1D2D400C4183C /* notifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879325D1D2D400C4183C /* notifViewController.swift */; };
 		3B60879825D1D2E300C4183C /* messageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879725D1D2E300C4183C /* messageViewController.swift */; };
@@ -17,7 +18,6 @@
 		3B65532C25AE0A730041A10B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532B25AE0A730041A10B /* ViewController.swift */; };
 		3B65532F25AE0A730041A10B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B65532D25AE0A730041A10B /* Main.storyboard */; };
 		3B65533125AE0A750041A10B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B65533025AE0A750041A10B /* Assets.xcassets */; };
-		3B66FE9A25BE59DF001D6779 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B66FE9925BE59DF001D6779 /* GoogleService-Info.plist */; };
 		3BA76F2625CA3B5C00F2EF74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76F2525CA3B5C00F2EF74 /* Constants.swift */; };
 		3BBF647F25CA107B00F5DC6A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */; };
 		3BBF648225CA108F00F5DC6A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF648125CA108F00F5DC6A /* LoginViewController.swift */; };
@@ -29,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		055E076425AE73CB00EC8455 /* realtymelogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realtymelogo.jpg; sourceTree = "<group>"; };
+		056AEE8925DC99A800A0951B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassViewController.swift; sourceTree = "<group>"; };
 		3B60879325D1D2D400C4183C /* notifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifViewController.swift; sourceTree = "<group>"; };
 		3B60879725D1D2E300C4183C /* messageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		3B65532E25AE0A730041A10B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B65533025AE0A750041A10B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B65533525AE0A750041A10B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B66FE9925BE59DF001D6779 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BA76F2525CA3B5C00F2EF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3BBF648125CA108F00F5DC6A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 				3BBF648725CA10AA00F5DC6A /* ViewControllers */,
 				3B65532D25AE0A730041A10B /* Main.storyboard */,
 				3B65532925AE0A730041A10B /* SceneDelegate.swift */,
+				056AEE8925DC99A800A0951B /* GoogleService-Info.plist */,
 				3B65533025AE0A750041A10B /* Assets.xcassets */,
-				3B66FE9925BE59DF001D6779 /* GoogleService-Info.plist */,
 				3B65533525AE0A750041A10B /* Info.plist */,
 				055E076425AE73CB00EC8455 /* realtymelogo.jpg */,
 			);
@@ -202,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B65533125AE0A750041A10B /* Assets.xcassets in Resources */,
-				3B66FE9A25BE59DF001D6779 /* GoogleService-Info.plist in Resources */,
+				056AEE8A25DC99A800A0951B /* GoogleService-Info.plist in Resources */,
 				3B65532F25AE0A730041A10B /* Main.storyboard in Resources */,
 				055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */,
 			);
