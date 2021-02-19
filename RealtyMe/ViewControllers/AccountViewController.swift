@@ -22,7 +22,8 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIButton!
-    
+    @IBOutlet weak var addListingButton: UIButton!
+    @IBOutlet weak var houseIcon: UIImageView!
     
     //reference to firestore db
     let db = Firestore.firestore()
@@ -36,6 +37,7 @@ class AccountViewController: UIViewController {
         
         //style UI elements
         Utilities.styleTextView(bioTextView)
+        Utilities.styleFilledButton(addListingButton)
         
         //user cannot edit from their account page but will have to go to settings
         bioTextView.isEditable = false
@@ -154,6 +156,10 @@ class AccountViewController: UIViewController {
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AccountToSettingsSegue", sender: nil)
+    }
+    
+    @IBAction func addListingButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "AccountToAddListingSegue", sender: nil)
     }
 }
 

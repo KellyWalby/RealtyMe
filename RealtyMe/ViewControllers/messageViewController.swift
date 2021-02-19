@@ -19,16 +19,16 @@ class messageViewController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showChatController()
-        setupInputComponents()
+        //showChatController()
+        //setupInputComponents()
 
         // Do any additional setup after loading the view.
     }
     
-    func showChatController(){
-        let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationController?.pushViewController(chatLogController, animated: false)
-    }
+//    func showChatController(){
+//        let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
+//        navigationController?.pushViewController(chatLogController, animated: false)
+//    }
 
     /*
     // MARK: - Navigation
@@ -57,26 +57,26 @@ class messageViewController: UICollectionViewController{
     }
 }
 
-class ChatLogController: UICollectionViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupInputComponents()
-        }
-    func setupInputComponents(){
-        let containerView = UIView()
-        containerView.backgroundColor = UIColor.red
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(containerView)
-        
-        //ios 14 constraint anchors
-        //x,y,w,h
-        
-        containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-        
-    }
+//class ChatLogController: UICollectionViewController {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        setupInputComponents()
+//        }
+//    func setupInputComponents(){
+//        let containerView = UIView()
+//        containerView.backgroundColor = UIColor.red
+//        containerView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(containerView)
+//
+//        //ios 14 constraint anchors
+//        //x,y,w,h
+//
+//        containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//        containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+//        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//    }
+//
+//    }
 

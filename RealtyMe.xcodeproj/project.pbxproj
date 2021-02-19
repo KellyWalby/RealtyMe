@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055E076425AE73CB00EC8455 /* realtymelogo.jpg */; };
-		056AEE8A25DC99A800A0951B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056AEE8925DC99A800A0951B /* GoogleService-Info.plist */; };
 		3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */; };
 		3B60879425D1D2D400C4183C /* notifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879325D1D2D400C4183C /* notifViewController.swift */; };
 		3B60879825D1D2E300C4183C /* messageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879725D1D2E300C4183C /* messageViewController.swift */; };
@@ -18,10 +17,12 @@
 		3B65532C25AE0A730041A10B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532B25AE0A730041A10B /* ViewController.swift */; };
 		3B65532F25AE0A730041A10B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B65532D25AE0A730041A10B /* Main.storyboard */; };
 		3B65533125AE0A750041A10B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B65533025AE0A750041A10B /* Assets.xcassets */; };
+		3BA6D54725DCAC38002D6EB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BA6D54625DCAC38002D6EB8 /* GoogleService-Info.plist */; };
 		3BA76F2625CA3B5C00F2EF74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA76F2525CA3B5C00F2EF74 /* Constants.swift */; };
 		3BBF647F25CA107B00F5DC6A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */; };
 		3BBF648225CA108F00F5DC6A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF648125CA108F00F5DC6A /* LoginViewController.swift */; };
 		3BBF648525CA10A300F5DC6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF648425CA10A300F5DC6A /* HomeViewController.swift */; };
+		3BC20F1825DF4D9900E8855A /* AddListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC20F1725DF4D9900E8855A /* AddListingViewController.swift */; };
 		3BE0DD3525DB335900B7F5FF /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */; };
 		3BFDD6EB25CA1AA7008395BC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDD6EA25CA1AA7008395BC /* Utilities.swift */; };
 		A87C1B56B46A9269A2D4B22F /* Pods_RealtyMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF3DD6791548DD051E1713 /* Pods_RealtyMe.framework */; };
@@ -29,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		055E076425AE73CB00EC8455 /* realtymelogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realtymelogo.jpg; sourceTree = "<group>"; };
-		056AEE8925DC99A800A0951B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassViewController.swift; sourceTree = "<group>"; };
 		3B60879325D1D2D400C4183C /* notifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifViewController.swift; sourceTree = "<group>"; };
 		3B60879725D1D2E300C4183C /* messageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageViewController.swift; sourceTree = "<group>"; };
@@ -41,10 +41,13 @@
 		3B65532E25AE0A730041A10B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B65533025AE0A750041A10B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B65533525AE0A750041A10B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BA6D54625DCAC38002D6EB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BA76F2525CA3B5C00F2EF74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3BBF648125CA108F00F5DC6A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBF648425CA10A300F5DC6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3BC20F1425DF488F00E8855A /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		3BC20F1725DF4D9900E8855A /* AddListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListingViewController.swift; sourceTree = "<group>"; };
 		3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		3BFDD6EA25CA1AA7008395BC /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		71E747C8C9233C0CB96683D6 /* Pods-RealtyMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtyMe.release.xcconfig"; path = "Target Support Files/Pods-RealtyMe/Pods-RealtyMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,15 +88,15 @@
 		3B65532625AE0A730041A10B /* RealtyMe */ = {
 			isa = PBXGroup;
 			children = (
+				3BC20F1225DF486500E8855A /* Images */,
 				3BFDD6ED25CA1BA0008395BC /* Helpers */,
 				3B65532725AE0A730041A10B /* AppDelegate.swift */,
 				3BBF648725CA10AA00F5DC6A /* ViewControllers */,
 				3B65532D25AE0A730041A10B /* Main.storyboard */,
 				3B65532925AE0A730041A10B /* SceneDelegate.swift */,
-				056AEE8925DC99A800A0951B /* GoogleService-Info.plist */,
 				3B65533025AE0A750041A10B /* Assets.xcassets */,
+				3BA6D54625DCAC38002D6EB8 /* GoogleService-Info.plist */,
 				3B65533525AE0A750041A10B /* Info.plist */,
-				055E076425AE73CB00EC8455 /* realtymelogo.jpg */,
 			);
 			path = RealtyMe;
 			sourceTree = "<group>";
@@ -109,9 +112,19 @@
 				3B60879325D1D2D400C4183C /* notifViewController.swift */,
 				3B60879725D1D2E300C4183C /* messageViewController.swift */,
 				3B619E0325CE112C0095FEF6 /* AccountViewController.swift */,
+				3BC20F1725DF4D9900E8855A /* AddListingViewController.swift */,
 				3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3BC20F1225DF486500E8855A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				055E076425AE73CB00EC8455 /* realtymelogo.jpg */,
+				3BC20F1425DF488F00E8855A /* house.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		3BFDD6ED25CA1BA0008395BC /* Helpers */ = {
@@ -202,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B65533125AE0A750041A10B /* Assets.xcassets in Resources */,
-				056AEE8A25DC99A800A0951B /* GoogleService-Info.plist in Resources */,
+				3BA6D54725DCAC38002D6EB8 /* GoogleService-Info.plist in Resources */,
 				3B65532F25AE0A730041A10B /* Main.storyboard in Resources */,
 				055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */,
 			);
@@ -279,6 +292,7 @@
 				3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */,
 				3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */,
 				3BFDD6EB25CA1AA7008395BC /* Utilities.swift in Sources */,
+				3BC20F1825DF4D9900E8855A /* AddListingViewController.swift in Sources */,
 				3BBF647F25CA107B00F5DC6A /* SignUpViewController.swift in Sources */,
 				3BBF648225CA108F00F5DC6A /* LoginViewController.swift in Sources */,
 				3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */,
