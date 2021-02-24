@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		055E076525AE73CC00EC8455 /* realtymelogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055E076425AE73CB00EC8455 /* realtymelogo.jpg */; };
+		3B24EA4625E0696A000AE37B /* OtherUserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */; };
 		3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */; };
 		3B60879425D1D2D400C4183C /* notifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879325D1D2D400C4183C /* notifViewController.swift */; };
 		3B60879825D1D2E300C4183C /* messageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879725D1D2E300C4183C /* messageViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		055E076425AE73CB00EC8455 /* realtymelogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = realtymelogo.jpg; sourceTree = "<group>"; };
+		3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserAccountViewController.swift; sourceTree = "<group>"; };
 		3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassViewController.swift; sourceTree = "<group>"; };
 		3B60879325D1D2D400C4183C /* notifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifViewController.swift; sourceTree = "<group>"; };
 		3B60879725D1D2E300C4183C /* messageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3B619E0325CE112C0095FEF6 /* AccountViewController.swift */,
 				3BC20F1725DF4D9900E8855A /* AddListingViewController.swift */,
 				3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */,
+				3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				3B65532C25AE0A730041A10B /* ViewController.swift in Sources */,
 				3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */,
 				3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */,
+				3B24EA4625E0696A000AE37B /* OtherUserAccountViewController.swift in Sources */,
 				3BFDD6EB25CA1AA7008395BC /* Utilities.swift in Sources */,
 				3BC20F1825DF4D9900E8855A /* AddListingViewController.swift in Sources */,
 				3BBF647F25CA107B00F5DC6A /* SignUpViewController.swift in Sources */,
