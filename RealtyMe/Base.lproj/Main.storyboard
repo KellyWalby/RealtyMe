@@ -333,21 +333,8 @@
                     <view key="view" contentMode="scaleToFill" id="dN6-Io-s3i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="liK-sv-iAo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="kHB-ZD-MNz"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="igY-94-ykv"/>
-                            </scrollView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="B1o-NN-zHK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="liK-sv-iAo" firstAttribute="leading" secondItem="B1o-NN-zHK" secondAttribute="leading" id="69W-m0-jvX"/>
-                            <constraint firstItem="liK-sv-iAo" firstAttribute="trailing" secondItem="B1o-NN-zHK" secondAttribute="trailing" id="8YG-sj-ghk"/>
-                            <constraint firstItem="liK-sv-iAo" firstAttribute="top" secondItem="dN6-Io-s3i" secondAttribute="top" id="bqC-HG-Q78"/>
-                            <constraint firstItem="liK-sv-iAo" firstAttribute="bottom" secondItem="B1o-NN-zHK" secondAttribute="bottom" id="eIB-MY-GeJ"/>
-                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem image="house" catalog="system" id="sTj-nn-9RE">
@@ -513,7 +500,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yP6-kh-q5O">
-                                <rect key="frame" x="20" y="30" width="374" height="780"/>
+                                <rect key="frame" x="20" y="30" width="374" height="800"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fL0-AN-b3W">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -566,7 +553,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYQ-I1-iZr">
-                                        <rect key="frame" x="0.0" y="675" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="675" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Rs5-dm-eLI"/>
                                         </constraints>
@@ -576,7 +563,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwr-K7-RsA">
-                                        <rect key="frame" x="0.0" y="730" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="750" width="374" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.55036312340000004" green="0.15348792080000001" blue="0.1529168487" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
