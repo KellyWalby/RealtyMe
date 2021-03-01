@@ -11,14 +11,19 @@ import Firebase
 
 class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
+    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
+    
     let db = Firestore.firestore()
     var count = 0
     var num = 20
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:collectionView.frame.width/2.1, height: collectionView.frame.width/2)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 // ????? TRIED TO COUNT NUMBER OF LISTINGS SO TILES WOULD REFLECT THAT BUT IT DIDNT WORK
 //        db.collection("listings").getDocuments()
@@ -38,7 +43,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 //        }
         return num //probs change to 2
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.backgroundColor = .gray //background color of cell
@@ -46,12 +51,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         return cell
     }
     
-    @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
-    fileprivate let collectionView: UICollectionView = {
+        fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -73,21 +74,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         collectionView.showsVerticalScrollIndicator = false //makes scroll bar invisable
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
-    
     
     @IBAction func homeToolbarButtonTapped(_ sender: Any) {
         //do nothing, already here
     }
     
     @IBAction func messageToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "HomeToMessageSegue", sender: nil)
+        self.performSegue(withIdentifier: "HomeMessageSegue", sender: nil)
     }
-    
     
     @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "HomeToNotifSegue", sender: nil)
@@ -96,12 +94,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     @IBAction func accountToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "HomeToAccountSegue", sender: nil)
     }
-    
-    
 }
 
 class CustomCell: UICollectionViewCell{
-    
+
     fileprivate let bg: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -109,9 +105,9 @@ class CustomCell: UICollectionViewCell{
         iv.clipsToBounds = true
         return iv
     }()
-    
+
     override init(frame: CGRect) {
-        
+
         super.init(frame: frame)
         contentView.addSubview(bg)
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -119,7 +115,7 @@ class CustomCell: UICollectionViewCell{
         bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

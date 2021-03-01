@@ -1,34 +1,29 @@
 //
-//  messageViewController.swift
+//  MessageViewController.swift
 //  RealtyMe
 //
-//  Created by Kelly Walby on 2/8/21.
+//  Created by Kelly Walby on 3/1/21.
 //  Copyright © 2021 Kelly Walby. All rights reserved.
 //
 
 import UIKit
 
-class messageViewController: UICollectionViewController{
-
+class MessageViewController: UIViewController {
+    
     
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
+    @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //showChatController()
-        //setupInputComponents()
 
         // Do any additional setup after loading the view.
     }
     
-//    func showChatController(){
-//        let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
-//        navigationController?.pushViewController(chatLogController, animated: false)
-//    }
 
     /*
     // MARK: - Navigation
@@ -46,37 +41,13 @@ class messageViewController: UICollectionViewController{
     }
     
     @IBAction func messageToolbarButtonTapped(_ sender: Any) {
-        //already here, do nothing
+        //do nothing
     }
+    
     @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "MessageToNotifSegue", sender: nil)
     }
-    
     @IBAction func accountToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "MessageToHomeSegue", sender: nil)
+        self.performSegue(withIdentifier: "MessageToAccountSegue", sender: nil)
     }
 }
-
-//class ChatLogController: UICollectionViewController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        setupInputComponents()
-//        }
-//    func setupInputComponents(){
-//        let containerView = UIView()
-//        containerView.backgroundColor = UIColor.red
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(containerView)
-//
-//        //ios 14 constraint anchors
-//        //x,y,w,h
-//
-//        containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-//        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-//        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//    }
-//
-//    }
-
