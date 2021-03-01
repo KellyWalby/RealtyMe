@@ -108,6 +108,7 @@
 			children = (
 				3B65532B25AE0A730041A10B /* ViewController.swift */,
 				3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */,
+				3B05AAAC25ED7797008735B0 /* MessageViewController.swift */,
 				3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */,
 				3BBF648125CA108F00F5DC6A /* LoginViewController.swift */,
 				3BBF648425CA10A300F5DC6A /* HomeViewController.swift */,
@@ -116,7 +117,6 @@
 				3BC20F1725DF4D9900E8855A /* AddListingViewController.swift */,
 				3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */,
 				3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */,
-				3B05AAAC25ED7797008735B0 /* MessageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
