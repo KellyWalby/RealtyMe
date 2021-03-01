@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.backgroundColor = .gray //background color of cell
-        cell.layer.cornerRadius = 7 //adds rounded corner to tiles
+        cell.layer.cornerRadius = 8 //adds rounded corner to tiles
         return cell
     }
     
