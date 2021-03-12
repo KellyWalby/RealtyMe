@@ -36,6 +36,9 @@ class LoginViewController: UIViewController {
         Utilities.styleTextField(passwordTextField)
         Utilities.styleHollowButton(forgotPassButton)
         Utilities.styleFilledButton(loginButton)
+        
+        emailTextField.text = "walbs18@gmail.com" //DELETE, USING FOR EASY SIGN IN
+        passwordTextField.text = "CoolKid1998!" //DELETE, USING FOR EASY SIGN IN
     }
     
     

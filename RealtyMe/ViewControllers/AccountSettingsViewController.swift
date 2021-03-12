@@ -8,10 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
-class AccountSettingsViewController: UIViewController, UITextViewDelegate {
+class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var accountBioTextView: UITextView!
     @IBOutlet weak var profileName: UITextField!
     @IBOutlet weak var profileUsername: UITextField!
@@ -20,8 +22,9 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var profileZipcode: UITextField!
     @IBOutlet weak var saveAccountSettingsButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var confirmationLabel: UILabel!
+    
+    private let storage = Storage.storage().reference()
     
     //variable to reference to db
     let db = Firestore.firestore()
@@ -74,6 +77,81 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate {
             }
         }
         
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.contentMode = .scaleAspectFit
+        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        profileImage.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func handleSelectProfileImageView(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        guard let uid = Auth.auth().currentUser?.uid //unwrap safetly in case user is not logged in
+        else {
+            return //user is not logged in
+        }
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        else {
+            return
+        }
+        guard let imageData = image.pngData() else {
+            return
+        }
+        
+        storage.child("userImages/\(uid).png").putData(imageData, metadata: nil, completion: { _, error in
+            guard error == nil else {
+                print("failed to upload")
+                return
+            }
+            self.storage.child("userImages/\(uid).png").downloadURL (completion: {url, error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                
+                let urlString = url.absoluteString
+                //update user data
+                print("Download URL: \(urlString)")
+                UserDefaults.standard.set(urlString, forKey: "url") //idk what this does
+                let error = self.validateFields()
+                if error != nil {
+                    //Something wrong with the fields
+                    self.showError(error!)
+                }
+                else {
+                    //create cleaned versions of the data
+                    let name = self.profileName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let username = self.profileUsername.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let email = self.profileEmail.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let zipCode = self.profileZipcode.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let phoneNumber = self.profilePhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) //optional
+                    let bio = self.accountBioTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) //optional
+                    
+                    
+                    //update user's database and profile settings
+                    let uid = Auth.auth().currentUser!.uid // safely unwrap the uid; avoid force unwrapping with !
+                    let updateUserPic = self.db.collection("users").document(uid)
+                    updateUserPic.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio, "profileImage":urlString]) {(error) in
+                                if error != nil{
+                                    self.showError("Error saving user data.")
+                                }
+                    }
+                    //create message to tell user their profile has been updated and save
+                    self.showConfirmation("Your profile picture is successfully uploaded!")
+                }
+            })
+        })
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+        print("Canceled picker")
     }
     
     //function to retrieve user's bio from db to display on user's profile
@@ -267,7 +345,7 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate {
             //update user's database and profile settings
             let uid = Auth.auth().currentUser!.uid // safely unwrap the uid; avoid force unwrapping with !
             let updateUserInfo = db.collection("users").document(uid)
-            updateUserInfo.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber,"bio":bio]) {(error) in
+            updateUserInfo.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio]) {(error) in
                         if error != nil{
                             self.showError("Error saving user data.")
                         }

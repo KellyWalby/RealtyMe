@@ -52,6 +52,8 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please Allow Access to Upload Photos</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
