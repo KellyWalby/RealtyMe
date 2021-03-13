@@ -22,7 +22,6 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
     @IBOutlet weak var profileZipcode: UITextField!
     @IBOutlet weak var saveAccountSettingsButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var confirmationLabel: UILabel!
     
     private let storage = Storage.storage().reference()
     
@@ -35,7 +34,6 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         //error label not showing
         
         errorLabel.alpha = 0
-        confirmationLabel.alpha = 0
         
         //styling UI items
         Utilities.styleFilledButton(saveAccountSettingsButton)
@@ -45,6 +43,11 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         Utilities.styleTextField(profileUsername)
         Utilities.styleTextField(profilePhoneNumber)
         Utilities.styleTextView(accountBioTextView)
+        
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.layer.cornerRadius = 60
+        profileImage?.image = UIImage(named: "IMG_5787")
+        
         
         getBio { (bio) in
             if let bio = bio {
@@ -104,13 +107,13 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         guard let imageData = image.pngData() else {
             return
         }
-        
-        storage.child("userImages/\(uid).png").putData(imageData, metadata: nil, completion: { _, error in
+        let imageName = NSUUID().uuidString
+        storage.child("userImages/\(imageName).png").putData(imageData, metadata: nil, completion: { _, error in
             guard error == nil else {
                 print("failed to upload")
                 return
             }
-            self.storage.child("userImages/\(uid).png").downloadURL (completion: {url, error in
+            self.storage.child("userImages/\(imageName).png").downloadURL (completion: {url, error in
                 guard let url = url, error == nil else {
                     return
                 }
@@ -142,8 +145,6 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
                                     self.showError("Error saving user data.")
                                 }
                     }
-                    //create message to tell user their profile has been updated and save
-                    self.showConfirmation("Your profile picture is successfully uploaded!")
                 }
             })
         })
@@ -151,7 +152,6 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
-        print("Canceled picker")
     }
     
     //function to retrieve user's bio from db to display on user's profile
@@ -296,10 +296,6 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         errorLabel.text = message //creates error message
         errorLabel.alpha = 1 //shows message to user
 }
-    func showConfirmation(_ message:String){
-        confirmationLabel.text = message //creates error message
-        confirmationLabel.alpha = 1 //shows message to user
-}
     
     //checks to make sure info is correct
     func validateFields() -> String?{
@@ -351,7 +347,8 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
                         }
                     }
             //create message to tell user their profile has been updated and save
-            showConfirmation("Your account settings were updated successfully!")
+            //showConfirmation("Your account settings were updated successfully!")
+            self.dismiss(animated: true, completion: nil)
                 }
                 
             }

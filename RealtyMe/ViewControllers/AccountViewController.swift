@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class AccountViewController: UIViewController {
     
@@ -24,10 +25,14 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     @IBOutlet weak var bioTextView: UITextView!
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bioTextView.isEditable = false
+        Utilities.styleFilledButton(addListingButton)
+        Utilities.styleTextView(bioTextView)
         
         getName { (name) in
             if let name = name {
@@ -41,9 +46,12 @@ class AccountViewController: UIViewController {
         }
         getUsername { (username) in
             if let username = username {
-                self.username.text = username
+                self.username.text = "@" + username
             }
         }
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.layer.cornerRadius = 50
+        profileImage?.image = UIImage(named: "IMG_5787")
     }
     //function to retrieve user's name from db to display on user's profile
     func getName (completion: @escaping (_ name: String?) -> Void) {
@@ -121,30 +129,9 @@ class AccountViewController: UIViewController {
         }
     }
     //function to retrieve user's name from db to display on user's profile
-    func getProfileImage (completion: @escaping (_ name: String?) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid //unwrap safetly in case user is not logged in
-        else {
-            completion(nil) //user is not logged in
-            return
-        }
-        Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
-            if let doc = docSnapshot {
-                if let name = doc.get("profileImage") as? String {
-                    completion(name) //success; return name
-                } else {
-                    print ("error getting field")
-                    completion(nil)
-                }
-            }else {
-                if let error = error {
-                    print (error)
-                }
-                completion(nil)
-            
-            }
-            
-        }
-    }
+    func getProfileImage() {
+        
+}
     
     
     @IBAction func homeToolbarButtonTapped(_ sender: Any) {
