@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import FirebaseUI
 
 class AccountViewController: UIViewController {
     
@@ -51,7 +52,7 @@ class AccountViewController: UIViewController {
         }
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.layer.cornerRadius = 50
-        profileImage?.image = UIImage(named: "IMG_5787")
+        getProfileImage()
     }
     //function to retrieve user's name from db to display on user's profile
     func getName (completion: @escaping (_ name: String?) -> Void) {
@@ -128,10 +129,34 @@ class AccountViewController: UIViewController {
             
         }
     }
-    //function to retrieve user's name from db to display on user's profile
+    //function to retrieve user's profile image from db to display on user's profile
     func getProfileImage() {
-        
-}
+        guard let uid = Auth.auth().currentUser?.uid //unwrap safetly in case user is not logged in
+        else {
+            return
+        }
+        Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
+            if let doc = docSnapshot {
+                if let pic = doc.get("profileImage") as? String {
+                    let reference = Storage.storage().reference(withPath: "userImages").child(pic)
+                    // UIImageView in your ViewController
+                    let imageView: UIImageView = self.profileImage
+                    // Placeholder image
+                    let placeholderImage = UIImage(named: "placeholder.jpg")
+                    // Load the image using SDWebImage
+                    imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+                } else {
+                    print ("error getting field")
+                }
+            }else {
+                if let error = error {
+                    print (error)
+                }
+            
+            }
+            
+        }
+    }
     
     
     @IBAction func homeToolbarButtonTapped(_ sender: Any) {

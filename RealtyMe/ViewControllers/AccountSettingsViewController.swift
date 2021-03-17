@@ -23,10 +23,12 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
     @IBOutlet weak var saveAccountSettingsButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    
     private let storage = Storage.storage().reference()
     
     //variable to reference to db
     let db = Firestore.firestore()
+    let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,8 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.layer.cornerRadius = 60
-        profileImage?.image = UIImage(named: "IMG_5787")
+        
+        //profileImage?.image = UIImage(named: "IMG_5787")
         
         
         getBio { (bio) in
@@ -84,6 +87,7 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         profileImage.contentMode = .scaleAspectFit
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
         profileImage.isUserInteractionEnabled = true
+        getProfileImage()
         
     }
     
@@ -135,12 +139,13 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
                     let zipCode = self.profileZipcode.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                     let phoneNumber = self.profilePhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) //optional
                     let bio = self.accountBioTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) //optional
+                    let pic = imageName+".png"
                     
                     
                     //update user's database and profile settings
                     let uid = Auth.auth().currentUser!.uid // safely unwrap the uid; avoid force unwrapping with !
                     let updateUserPic = self.db.collection("users").document(uid)
-                    updateUserPic.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio, "profileImage":urlString]) {(error) in
+                    updateUserPic.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio, "profileImage":pic]) {(error) in
                                 if error != nil{
                                     self.showError("Error saving user data.")
                                 }
@@ -292,6 +297,35 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
             }
         }
     
+    //function to retrieve user's name from db to display on user's profile
+    func getProfileImage() {
+        guard let uid = Auth.auth().currentUser?.uid //unwrap safetly in case user is not logged in
+        else {
+            return
+        }
+        Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
+            if let doc = docSnapshot {
+                if let pic = doc.get("profileImage") as? String {
+                    let reference = Storage.storage().reference(withPath: "userImages").child(pic)
+                    // UIImageView in your ViewController
+                    let imageView: UIImageView = self.profileImage
+                    // Placeholder image
+                    let placeholderImage = UIImage(named: "placeholder.jpg")
+                    // Load the image using SDWebImage
+                    imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+                } else {
+                    print ("error getting field")
+                }
+            }else {
+                if let error = error {
+                    print (error)
+                }
+            
+            }
+            
+        }
+    }
+    
     func showError(_ message:String){
         errorLabel.text = message //creates error message
         errorLabel.alpha = 1 //shows message to user
@@ -336,8 +370,7 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
             let zipCode = profileZipcode.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let phoneNumber = profilePhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) //optional
             let bio = accountBioTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) //optional
-            
-            
+                    
             //update user's database and profile settings
             let uid = Auth.auth().currentUser!.uid // safely unwrap the uid; avoid force unwrapping with !
             let updateUserInfo = db.collection("users").document(uid)
