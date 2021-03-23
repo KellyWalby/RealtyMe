@@ -47,9 +47,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         //let user = usersArray[indexPath.row]
         //cell.textLabel?.text = user
-        cell.backgroundColor = .gray //background color of cell
+        cell.backgroundColor = UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1) //super light gray
         cell.layer.cornerRadius = 8 //adds rounded corner to tiles
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "HomeToListingDetails", sender: nil)
     }
     
     
@@ -100,26 +104,80 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 }
 
 class CustomCell: UICollectionViewCell{
-
-    fileprivate let bg: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        return iv
+    
+    func roundedCorners(corners:UIRectCorner, radius: CGFloat){
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+    
+    private let myImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "IMG_5797")
+        imageView.tintColor = .black
+        imageView.backgroundColor = .red
+        return imageView
+    }()
+    
+    private let myBookmark: UIButton = {
+        let bookmark = UIButton()
+        bookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        bookmark.tintColor = .black
+        return bookmark
+    }()
+    
+    private let myLabel1: UILabel = {
+        let addressLabel = UILabel()
+        addressLabel.text = "Address"
+        return addressLabel
+    }()
+    
+    private let myLabel2: UILabel = {
+        let priceLabel = UILabel()
+        priceLabel.text = "Price"
+        return priceLabel
     }()
 
-    override init(frame: CGRect) {
 
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(bg)
-        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        contentView.addSubview(myImageView)
+        contentView.addSubview(myBookmark)
+        contentView.addSubview(myLabel1)
+        contentView.addSubview(myLabel2)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        myLabel1.frame = CGRect(x: 5,
+                                y: contentView.frame.size.height-62.5,
+                                width: contentView.frame.size.width-10,
+                                height: 50)
+        myLabel2.frame = CGRect(x: 5,
+                                y: contentView.frame.size.height-40,
+                                width: contentView.frame.size.width-10,
+                                height: 50)
+        myImageView.frame = CGRect(x: 0,
+                                y: 0,
+                                width: contentView.frame.size.width,
+                                height: contentView.frame.size.height-50)
+        myBookmark.frame = CGRect(x: 80,
+                                y: contentView.frame.size.height-60,
+                                width: contentView.frame.size.width-10,
+                                height: 50)
+        roundCorners(corners: [.topLeft, .topRight], radius: 8) //rounds the top two corners but not the bottom for image
+    }
+}
+
+extension CustomCell {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }

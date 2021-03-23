@@ -375,11 +375,68 @@
                         <segue destination="jqw-2a-aTN" kind="show" identifier="HomeToAccountSegue" id="6xx-8h-p6g"/>
                         <segue destination="Pwx-aj-EoT" kind="show" identifier="HomeToNotifSegue" id="Suf-f9-LmU"/>
                         <segue destination="fQk-Uc-2bB" kind="show" identifier="HomeMessageSegue" id="XlV-ma-cXs"/>
+                        <segue destination="YKp-et-oNz" kind="show" identifier="HomeToListingDetails" id="z5u-Nj-i5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4486.9565217391309" y="156.02678571428569"/>
+        </scene>
+        <!--Listing Details View Controller-->
+        <scene sceneID="MNN-7S-0TJ">
+            <objects>
+                <viewController id="YKp-et-oNz" customClass="listingDetailsViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kJw-Sc-tci">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WSg-B1-xJy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem image="house" catalog="system" id="6Nb-22-180">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="homeToolbarButtonTapped:" destination="YKp-et-oNz" id="EIn-eM-NtP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="PdW-jS-OsB"/>
+                        <barButtonItem image="message" catalog="system" id="uzy-8R-9kP">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="messageToolbarButtonTapped:" destination="YKp-et-oNz" id="MjU-VE-gbh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="yUo-PC-Bbu"/>
+                        <barButtonItem image="bell.badge" catalog="system" id="V5f-bf-wzH">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="notificationToolbarButtonTapped:" destination="YKp-et-oNz" id="ZiV-Kh-c2j"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="I2J-BR-him"/>
+                        <barButtonItem image="person.fill" catalog="system" id="hTt-YO-9Ui">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="accountToolbarButtonTapped:" destination="YKp-et-oNz" id="kls-g2-fWU"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="7kf-54-1j1"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="accountToolbarButton" destination="hTt-YO-9Ui" id="ppe-0N-VlS"/>
+                        <outlet property="homeToolbarButton" destination="6Nb-22-180" id="2cK-x2-Sou"/>
+                        <outlet property="messageToolbarButton" destination="uzy-8R-9kP" id="mof-WT-uaL"/>
+                        <outlet property="notificationToolbarButton" destination="V5f-bf-wzH" id="WIQ-ZM-PFZ"/>
+                        <segue destination="fQk-Uc-2bB" kind="show" identifier="ListingDetailsToMessage" id="afq-Ze-16E"/>
+                        <segue destination="dKn-Iq-olY" kind="show" identifier="ListingDetailsToHome" id="m51-q7-FDn"/>
+                        <segue destination="Pwx-aj-EoT" kind="show" identifier="ListingDetailsToNotif" id="dPs-xc-5dv"/>
+                        <segue destination="jqw-2a-aTN" kind="show" identifier="ListingDetailsToAccount" id="jgv-K2-tSV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qn8-Wp-7hJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4472" y="-557"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="eNB-CC-iTQ">
@@ -1136,10 +1193,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ryf-fH-oMZ"/>
-        <segue reference="Y2b-0I-tep"/>
-        <segue reference="wiD-Vn-U06"/>
-        <segue reference="msa-ay-ZsM"/>
-        <segue reference="22U-Fw-2EF"/>
+        <segue reference="jgv-K2-tSV"/>
+        <segue reference="dPs-xc-5dv"/>
+        <segue reference="afq-Ze-16E"/>
+        <segue reference="m51-q7-FDn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.badge" catalog="system" width="128" height="124"/>
