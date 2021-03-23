@@ -23,6 +23,7 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
     @IBOutlet weak var saveAccountSettingsButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var picName: UITextField!
     
     private let storage = Storage.storage().reference()
     
@@ -36,6 +37,7 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         //error label not showing
         
         errorLabel.alpha = 0
+        picName.alpha = 0 //does not show name of pic
         
         //styling UI items
         Utilities.styleFilledButton(saveAccountSettingsButton)
@@ -80,6 +82,11 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         getUsername { (username) in
             if let username = username {
                 self.profileUsername.text = username
+            }
+        }
+        getProfileImageName { (imageName) in
+            if let imageName = imageName {
+                self.picName.text = imageName
             }
         }
         
@@ -127,6 +134,7 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
                 print("Download URL: \(urlString)")
                 UserDefaults.standard.set(urlString, forKey: "url") //idk what this does
                 let error = self.validateFields()
+                self.picName.text = imageName+".png"
                 if error != nil {
                     //Something wrong with the fields
                     self.showError(error!)
@@ -139,13 +147,13 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
                     let zipCode = self.profileZipcode.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                     let phoneNumber = self.profilePhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) //optional
                     let bio = self.accountBioTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) //optional
-                    let pic = imageName+".png"
+                     let picture = imageName+".png"
                     
                     
                     //update user's database and profile settings
                     let uid = Auth.auth().currentUser!.uid // safely unwrap the uid; avoid force unwrapping with !
                     let updateUserPic = self.db.collection("users").document(uid)
-                    updateUserPic.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio, "profileImage":pic]) {(error) in
+                    updateUserPic.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio, "profileImage":picture]) {(error) in
                                 if error != nil{
                                     self.showError("Error saving user data.")
                                 }
@@ -326,6 +334,29 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
         }
     }
     
+    //function to retrieve user's name from db to display on user's profile
+    func getProfileImageName(completion: @escaping (_ name: String?) -> Void) {
+            guard let uid = Auth.auth().currentUser?.uid // safely unwrap the uid; avoid force unwrapping with !
+            else{
+                completion(nil) // user is not logged in; return nil
+                return
+            }
+        Firestore.firestore().collection("users").document(uid).getDocument { (docSnapshot, error) in
+                if let doc = docSnapshot {
+                    if let name = doc.get("profileImage") as? String {
+                        completion(name) // success; return name
+                    } else {
+                        completion(nil) // error getting field; return nil
+                    }
+                } else {
+                    if let error = error {
+                        print(error)
+                    }
+                    completion(nil) // error getting document; return nil
+                }
+            }
+        }
+    
     func showError(_ message:String){
         errorLabel.text = message //creates error message
         errorLabel.alpha = 1 //shows message to user
@@ -370,11 +401,12 @@ class AccountSettingsViewController: UIViewController, UITextViewDelegate, UIIma
             let zipCode = profileZipcode.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let phoneNumber = profilePhoneNumber.text?.trimmingCharacters(in: .whitespacesAndNewlines) //optional
             let bio = accountBioTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) //optional
+            let pic = picName.text?.trimmingCharacters(in: .whitespacesAndNewlines) //optional
                     
             //update user's database and profile settings
             let uid = Auth.auth().currentUser!.uid // safely unwrap the uid; avoid force unwrapping with !
             let updateUserInfo = db.collection("users").document(uid)
-            updateUserInfo.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio]) {(error) in
+            updateUserInfo.setData(["name": name,"username":username,"email": email,"zipCode":zipCode,"phoneNumber":phoneNumber as Any,"bio":bio, "profileImage":pic as Any]) {(error) in
                         if error != nil{
                             self.showError("Error saving user data.")
                         }

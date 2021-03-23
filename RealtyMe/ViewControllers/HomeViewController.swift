@@ -17,35 +17,36 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
     let db = Firestore.firestore()
-    var count = 0
-    var num = 20
+    var listingArray = [String]()
+    
+    func loadData() {
+        db.collection("listings").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    self.listingArray.append(document.documentID)
+                }
+            }
+            print(self.listingArray) // <-- This prints the adrress of listings aka document id
+            self.collectionView.reloadData()
 
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:collectionView.frame.width/2.1, height: collectionView.frame.width/2)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-// ????? TRIED TO COUNT NUMBER OF LISTINGS SO TILES WOULD REFLECT THAT BUT IT DIDNT WORK
-//        db.collection("listings").getDocuments()
-//        {
-//            (querySnapshot, err) in
-//            if let err = err
-//            {
-//                print("Error getting documents: \(err)");
-//            }
-//            else
-//            {
-//                for document in querySnapshot!.documents {
-//                    self.count += 1
-//                }
-//                self.num = self.count
-//            }
-//        }
-        return num //probs change to 2
+        return listingArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        //let user = usersArray[indexPath.row]
+        //cell.textLabel?.text = user
         cell.backgroundColor = .gray //background color of cell
         cell.layer.cornerRadius = 8 //adds rounded corner to tiles
         return cell
@@ -65,6 +66,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+        
         
         //setting up collection view colors & constraints
         view.addSubview(collectionView)
