@@ -45,8 +45,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        //let user = usersArray[indexPath.row]
-        //cell.textLabel?.text = user
         cell.backgroundColor = UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1) //super light gray
         cell.layer.cornerRadius = 8 //adds rounded corner to tiles
         return cell
@@ -104,13 +102,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 }
 
 class CustomCell: UICollectionViewCell{
-    
-    func roundedCorners(corners:UIRectCorner, radius: CGFloat){
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        self.layer.mask = mask
-    }
     
     private let myImageView: UIImageView = {
         let imageView = UIImageView()
