@@ -9,7 +9,23 @@
 import UIKit
 import Firebase
 
+//struct listingData {
+//    var listingArray = [String]()
+//}
+
 class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    struct houseData {
+        var listingArray = [String]()
+        var priceArray = [String]()
+        var imageArray = ["IMG_5797","IMG_5798","IMG_5800"] //havent figured out how to fetch from db
+        let imageview = UIImageView()
+        let bookmark = UIButton()
+        let addressLabel = UILabel()
+        let priceLabel = UILabel()
+    }
+    var data = houseData() //init of struct
+    
     
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
     @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
@@ -17,19 +33,34 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
     let db = Firestore.firestore()
-    var listingArray = [String]()
+    //var listingArray = [String]()
     
-    func loadData() {
+    func loadHouseAddress() {
         db.collection("listings").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    
-                    self.listingArray.append(document.documentID)
+                    self.data.listingArray.append(document.documentID)
+                    //self.listingArray.append(document.documentID)
                 }
             }
-            print(self.listingArray) // <-- This prints the adrress of listings aka document id
+            //print(self.data.listingArray) // <-- This prints the adrress of listings aka document id
+            self.collectionView.reloadData()
+
+        }
+    }
+    
+    func loadHousePrice() {
+        db.collection("listings").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.data.priceArray.append(document.data()["price"] as! String)
+                }
+            }
+            //print(self.data.priceArray) // <-- This prints the adrress of listings aka document id
             self.collectionView.reloadData()
 
         }
@@ -40,13 +71,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listingArray.count
+        return data.listingArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.backgroundColor = UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1) //super light gray
         cell.layer.cornerRadius = 8 //adds rounded corner to tiles
+        //this makes sure that the price array is above 0
+        if data.priceArray.count > 0 && indexPath.row < data.priceArray.count {
+            let address = data.listingArray[indexPath.row]
+            cell.myLabel1.text = address
+            let price = data.priceArray[indexPath.row]
+            cell.myLabel2.text = "$"+price
+            let image = data.imageArray[indexPath.row]
+            cell.myImageView.image = UIImage(named: image)
+        }
         return cell
     }
     
@@ -68,9 +108,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
-        
-        
+        loadHouseAddress()
+        loadHousePrice()
+
         //setting up collection view colors & constraints
         view.addSubview(collectionView)
         collectionView.backgroundColor = .white
@@ -103,7 +143,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
 
 class CustomCell: UICollectionViewCell{
     
-    private let myImageView: UIImageView = {
+    public let myImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "IMG_5797")
         imageView.tintColor = .black
@@ -111,22 +151,20 @@ class CustomCell: UICollectionViewCell{
         return imageView
     }()
     
-    private let myBookmark: UIButton = {
+    public let myBookmark: UIButton = {
         let bookmark = UIButton()
         bookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
         bookmark.tintColor = .black
         return bookmark
     }()
     
-    private let myLabel1: UILabel = {
+    public let myLabel1: UILabel = {
         let addressLabel = UILabel()
-        addressLabel.text = "Address"
         return addressLabel
     }()
     
-    private let myLabel2: UILabel = {
+    public  let myLabel2: UILabel = {
         let priceLabel = UILabel()
-        priceLabel.text = "Price"
         return priceLabel
     }()
 

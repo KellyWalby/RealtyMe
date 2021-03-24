@@ -7,11 +7,16 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
+import Firebase
 
 class Utilities {
+    
+    let db = Firestore.firestore()
+    var addressArray = [String]()
+    var priceArray = [String]()
+    var imageArray = [String]()
+    
     
     static func styleTextField(_ textfield:UITextField) {
         
@@ -65,6 +70,22 @@ class Utilities {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
+    }
+    
+    func loadData() {
+        db.collection("listings").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    self.addressArray.append(document.documentID)
+                }
+            }
+            print(self.addressArray) // <-- This prints the adrress of listings aka document id
+            //self.collectionView.reloadData()
+
+        }
     }
     
 }
