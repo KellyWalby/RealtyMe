@@ -25,6 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         let priceLabel = UILabel() //price label for each cell
     }
     var data = houseData() //init of struct
+    var selectedIndexPath: IndexPath = IndexPath()
     
     
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
@@ -105,7 +106,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = self.selectedIndexPath
+
+        if (segue.identifier == "HomeToListingDetails") {
+            var viewController = segue.destination as! listingDetailsViewController
+            viewController.image = (data.imageArray[indexPath.row])
+            viewController.address = (data.listingArray[indexPath.row])
+            viewController.price = (data.priceArray[indexPath.row])
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
         self.performSegue(withIdentifier: "HomeToListingDetails", sender: nil)
     }
     
@@ -169,7 +182,7 @@ class CustomCell: UICollectionViewCell{
     public let myBookmark: UIButton = {
         let bookmark = UIButton()
         bookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        bookmark.tintColor = .black
+        bookmark.tintColor = UIColor(red: 156/255.0, green: 28/255.0, blue: 35/255.0, alpha: 1) //super light gray
         return bookmark
     }()
     
