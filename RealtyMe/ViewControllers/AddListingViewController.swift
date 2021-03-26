@@ -186,4 +186,5 @@ class AddListingViewController: UIViewController, UIImagePickerControllerDelegat
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
 }

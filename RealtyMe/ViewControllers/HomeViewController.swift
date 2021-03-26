@@ -110,7 +110,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         let indexPath = self.selectedIndexPath
 
         if (segue.identifier == "HomeToListingDetails") {
-            var viewController = segue.destination as! listingDetailsViewController
+            let viewController = segue.destination as! listingDetailsViewController
             viewController.image = (data.imageArray[indexPath.row])
             viewController.address = (data.listingArray[indexPath.row])
             viewController.price = (data.priceArray[indexPath.row])

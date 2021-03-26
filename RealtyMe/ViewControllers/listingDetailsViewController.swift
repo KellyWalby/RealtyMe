@@ -28,22 +28,31 @@ class listingDetailsViewController: UIViewController {
     @IBOutlet weak var bedrooms: UILabel!
     @IBOutlet weak var bathrooms: UILabel!
     
-    @IBOutlet weak var bookmarkButton: UIButton!
+    private var animatedView: UIView?
+    let db = Firestore.firestore()
+    let uid = Auth.auth().currentUser?.uid
+    
     let classHomeVC = HomeViewController()
-    var isBookmarked = false
+    let classAccountVC = AccountViewController()
     var image: String = String()
     var address: String = String()
     var price: String = String()
+    var globalCity = ""
+    var globalState = ""
+    var globalZipcode = ""
+    var globalPrice = ""
+    var globalBathrooms = ""
+    var globalBedrooms = ""
+    var globalSqFt = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //listingImage = classHomeVC.data.imageview
         listingAddress.text = address
-        //listingStreetName.text = address
         listingPrice.text = "$"+price
-        listingImage.image = UIImage(named: "IMG_5797")
+        globalPrice = price
         listingDescription.isEditable = false
+        listingDescription.isScrollEnabled = false
         listingDescription.backgroundColor = UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1) //super light gray
         view.backgroundColor = UIColor(red: 246/255.0, green: 246/255.0, blue: 246/255.0, alpha: 1) //super light gray
         
@@ -54,6 +63,9 @@ class listingDetailsViewController: UIViewController {
                         self.getState { (state) in
                             if let state = state {
                                 self.listingStreetName.text = city+", "+state+", "+zipcode
+                                self.globalCity = city
+                                self.globalState = state
+                                self.globalZipcode = zipcode
                             }
                         }
                 //self.picName.text = imageName
@@ -71,20 +83,26 @@ class listingDetailsViewController: UIViewController {
         getBathrooms { (bathrooms) in
             if let bathrooms = bathrooms {
                 self.bathrooms.text = "Bathrooms: "+bathrooms
+                self.globalBathrooms = bathrooms
             }
         }
         getBedrooms { (bedrooms) in
             if let bedrooms = bedrooms {
                 self.bedrooms.text = "Bedrooms: "+bedrooms
+                self.globalBedrooms = bedrooms
             }
         }
         getSqFt { (sqFt) in
             if let sqFt = sqFt {
                 self.listingSqFt.text = "Square Feet: "+sqFt
+                self.globalSqFt = sqFt
             }
         }
-//        bookmarkButton.setImage(btnImage, for: .normal)
-//        bookmarkButton.setImage(btnImageFilled, for: .normal)
+        let buttonFrame = CGRect(x: view.frame.midX + 140, y: view.frame.midY + 12.5, width: 70, height: 70)
+            let heartButton = BookmarkButton(frame: buttonFrame)
+            heartButton.addTarget(
+              self, action: #selector(handleHeartButtonTap(_:)), for: .touchUpInside)
+            view.addSubview(heartButton)
     }
     
     //function to retrieve user's name from db to display on user's profile
@@ -240,20 +258,52 @@ class listingDetailsViewController: UIViewController {
         }
     }
     
-    func setOnEmptyBookmark(){
-        isBookmarked = false
-        let btnImage = UIImage(named: "bookmark")
-        bookmarkButton.setImage(btnImage, for: .normal)
-        
-        
+    @objc private func handleHeartButtonTap(_ sender: UIButton) {
+      guard let button = sender as? BookmarkButton else
+      {
+        return
+      }
+      button.flipLikedState()
+        if button.isLiked == true {
+            //create cleaned versions of the data
+            let price = globalPrice
+            let address = listingAddress.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let city = globalCity
+            let state = globalState
+            let zipcode = globalZipcode
+            let sqFt = globalSqFt
+            let bathrooms = globalBathrooms
+            let bedrooms = globalBedrooms
+            let description = listingDescription.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+            //create new listing
+            let createBookmark = db.collection("users").document(uid!).collection("bookmarks").document(address)
+            createBookmark.setData(["price": price,
+                                   "address":address,
+                                   "city":city,
+                                   "state":state,
+                                   "zipcode":zipcode,
+                                   "sqFt":sqFt,
+                                   "bathrooms":bathrooms,
+                                   "bedrooms":bedrooms,
+                                   "description":description,
+                                   "listingImage":image])
+            {(error) in
+                            if error != nil{
+                                print("Error saving user data.")
+                            }
+                        }
+        } else if button.isLiked == false {
+            //delete bookmark here
+            db.collection("users").document(uid!).collection("bookmarks").document(address).delete() { err in
+                if let err = err {
+                    //print("Error removing document: \(err)")
+                } else {
+                    //print("Document successfully removed!")
+                }
+            }
+        }
     }
-    func setOnFilledBookmark(){
-        isBookmarked = true
-        let btnImageFilled = UIImage(named: "bookmark.fill")
-        bookmarkButton.setImage(btnImageFilled, for: .normal)
-        
-    }
-    
     
     @IBAction func homeToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "ListingDetailsToHome", sender: nil)
@@ -271,12 +321,4 @@ class listingDetailsViewController: UIViewController {
     }
     
     
-    @IBAction func bookmarkButtonTapped(_ sender: AnyObject) {
-        if !isBookmarked {
-            isBookmarked = true
-            setOnFilledBookmark()
-        }else {
-            setOnEmptyBookmark()
-        }
-    }
 }
