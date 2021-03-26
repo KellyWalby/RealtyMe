@@ -14,7 +14,6 @@ class listingDetailsViewController: UIViewController {
     
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
     @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
     @IBOutlet weak var listingImage: UIImageView!
@@ -311,10 +310,6 @@ class listingDetailsViewController: UIViewController {
     
     @IBAction func messageToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "ListingDetailsToMessage", sender: nil)
-    }
-    
-    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "ListingDetailsToNotif", sender: nil)
     }
     @IBAction func accountToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "ListingDetailsToAccount", sender: nil)

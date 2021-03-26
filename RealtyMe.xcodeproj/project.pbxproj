@@ -13,7 +13,6 @@
 		3B38775025FBC8BB00A5FDF3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B38774F25FBC8BB00A5FDF3 /* AccountViewController.swift */; };
 		3B449E1025FBC56400C944A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B449E0F25FBC56400C944A7 /* GoogleService-Info.plist */; };
 		3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */; };
-		3B60879425D1D2D400C4183C /* notifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60879325D1D2D400C4183C /* notifViewController.swift */; };
 		3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532725AE0A730041A10B /* AppDelegate.swift */; };
 		3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532925AE0A730041A10B /* SceneDelegate.swift */; };
 		3B65532C25AE0A730041A10B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532B25AE0A730041A10B /* ViewController.swift */; };
@@ -38,7 +37,6 @@
 		3B38774F25FBC8BB00A5FDF3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3B449E0F25FBC56400C944A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassViewController.swift; sourceTree = "<group>"; };
-		3B60879325D1D2D400C4183C /* notifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifViewController.swift; sourceTree = "<group>"; };
 		3B65532425AE0A730041A10B /* RealtyMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtyMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B65532725AE0A730041A10B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B65532925AE0A730041A10B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 				3BBF647E25CA107B00F5DC6A /* SignUpViewController.swift */,
 				3BBF648125CA108F00F5DC6A /* LoginViewController.swift */,
 				3BBF648425CA10A300F5DC6A /* HomeViewController.swift */,
-				3B60879325D1D2D400C4183C /* notifViewController.swift */,
 				3BC20F1725DF4D9900E8855A /* AddListingViewController.swift */,
 				3B38774F25FBC8BB00A5FDF3 /* AccountViewController.swift */,
 				3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */,
@@ -311,7 +308,6 @@
 				3BBF648525CA10A300F5DC6A /* HomeViewController.swift in Sources */,
 				3BA76F2625CA3B5C00F2EF74 /* Constants.swift in Sources */,
 				3BA9FAB4260A795900BF6896 /* listingDetailsViewController.swift in Sources */,
-				3B60879425D1D2D400C4183C /* notifViewController.swift in Sources */,
 				3BB496AD260E3F2400B19A2E /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

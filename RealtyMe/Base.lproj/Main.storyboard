@@ -329,6 +329,7 @@
         <!--Home View Controller-->
         <scene sceneID="v7O-rl-7oh">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="dKn-Iq-olY" customClass="HomeViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dN6-Io-s3i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -350,13 +351,6 @@
                                 <action selector="messageToolbarButtonTapped:" destination="dKn-Iq-olY" id="DRp-oz-w7H"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="UiA-Hi-SFH"/>
-                        <barButtonItem image="bell.badge" catalog="system" id="6LF-CM-dXy">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="notificationToolbarButtonTapped:" destination="dKn-Iq-olY" id="qbw-6O-Po4"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="DSC-Ug-eaA"/>
                         <barButtonItem image="person.fill" catalog="system" id="L4A-zC-YJ3">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -371,14 +365,11 @@
                         <outlet property="accountToolbarButton" destination="L4A-zC-YJ3" id="Dav-8L-l9r"/>
                         <outlet property="homeToolbarButton" destination="L9Y-be-Da6" id="Sja-1r-d21"/>
                         <outlet property="messageToolbarButton" destination="H05-0m-WHJ" id="1mC-qn-7MD"/>
-                        <outlet property="notificationToolbarButton" destination="6LF-CM-dXy" id="Yyr-rQ-pGP"/>
                         <segue destination="jqw-2a-aTN" kind="show" identifier="HomeToAccountSegue" id="6xx-8h-p6g"/>
-                        <segue destination="Pwx-aj-EoT" kind="show" identifier="HomeToNotifSegue" id="Suf-f9-LmU"/>
                         <segue destination="fQk-Uc-2bB" kind="show" identifier="HomeMessageSegue" id="XlV-ma-cXs"/>
                         <segue destination="YKp-et-oNz" kind="show" identifier="HomeToListingDetails" id="z5u-Nj-i5c"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4486.9565217391309" y="156.02678571428569"/>
         </scene>
@@ -504,13 +495,6 @@
                                 <action selector="messageToolbarButtonTapped:" destination="YKp-et-oNz" id="MjU-VE-gbh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="yUo-PC-Bbu"/>
-                        <barButtonItem image="bell.badge" catalog="system" id="V5f-bf-wzH">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="notificationToolbarButtonTapped:" destination="YKp-et-oNz" id="ZiV-Kh-c2j"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="I2J-BR-him"/>
                         <barButtonItem image="person.fill" catalog="system" id="hTt-YO-9Ui">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -535,10 +519,8 @@
                         <outlet property="listingSqFt" destination="h2v-G3-7OR" id="Sft-zv-wZZ"/>
                         <outlet property="listingStreetName" destination="Vlt-oy-6fR" id="y6Z-Zw-uIm"/>
                         <outlet property="messageToolbarButton" destination="uzy-8R-9kP" id="mof-WT-uaL"/>
-                        <outlet property="notificationToolbarButton" destination="V5f-bf-wzH" id="WIQ-ZM-PFZ"/>
                         <segue destination="fQk-Uc-2bB" kind="show" identifier="ListingDetailsToMessage" id="afq-Ze-16E"/>
                         <segue destination="dKn-Iq-olY" kind="show" identifier="ListingDetailsToHome" id="m51-q7-FDn"/>
-                        <segue destination="Pwx-aj-EoT" kind="show" identifier="ListingDetailsToNotif" id="dPs-xc-5dv"/>
                         <segue destination="jqw-2a-aTN" kind="show" identifier="ListingDetailsToAccount" id="jgv-K2-tSV"/>
                     </connections>
                 </viewController>
@@ -571,13 +553,6 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="t8m-Jd-pG9"/>
-                        <barButtonItem image="bell.badge" catalog="system" id="xmz-wu-qlC">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="notificationToolbarButtonTapped:" destination="fQk-Uc-2bB" id="Zmv-1b-ahQ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="PnH-Qo-w6p"/>
                         <barButtonItem image="person.fill" catalog="system" id="Tff-Ba-cAD">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -591,70 +566,13 @@
                         <outlet property="accountToolbarButton" destination="Tff-Ba-cAD" id="u6N-TK-N0r"/>
                         <outlet property="homeToolbarButton" destination="YhH-8r-Cwf" id="Gmt-vg-RDH"/>
                         <outlet property="messageToolbarButton" destination="dlt-Kf-P0j" id="9ul-Bk-8Ig"/>
-                        <outlet property="notificationToolbarButton" destination="xmz-wu-qlC" id="kOK-oY-nQA"/>
                         <segue destination="dKn-Iq-olY" kind="show" identifier="MessageToHomeSegue" id="wgT-AV-htG"/>
-                        <segue destination="Pwx-aj-EoT" kind="show" identifier="MessageToNotifSegue" id="zJe-wz-ZKM"/>
                         <segue destination="jqw-2a-aTN" kind="show" identifier="MessageToAccountSegue" id="Y2b-0I-tep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFQ-Rd-ZLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5454" y="-504"/>
-        </scene>
-        <!--Notif View Controller-->
-        <scene sceneID="5Zg-rW-144">
-            <objects>
-                <viewController id="Pwx-aj-EoT" customClass="notifViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WCB-bU-I6f">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="o6C-Qn-NAz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem image="house" catalog="system" id="rMO-Z3-hFc">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="homeToolbarButtonTapped:" destination="Pwx-aj-EoT" id="OW8-yK-Rq0"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jiW-8F-X7W"/>
-                        <barButtonItem image="message" catalog="system" id="M2n-Ol-pSE">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="messageToolbarButtonTapped:" destination="Pwx-aj-EoT" id="fIz-f3-L8t"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="bqx-FL-8Wo"/>
-                        <barButtonItem image="bell.badge" catalog="system" id="cEr-3A-etE">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="notificationToolbarButtonTapped:" destination="Pwx-aj-EoT" id="sYT-v6-zjF"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="nWD-tI-3Zb"/>
-                        <barButtonItem image="person.fill" catalog="system" id="BOO-na-mdF">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="accountToolbarButtonTapped:" destination="Pwx-aj-EoT" id="XAZ-fV-10u"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="6xN-q3-wGm"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="accountToolbarButton" destination="BOO-na-mdF" id="ARP-BG-KP0"/>
-                        <outlet property="homeToolbarButton" destination="rMO-Z3-hFc" id="ITg-IW-gQw"/>
-                        <outlet property="messageToolbarButton" destination="M2n-Ol-pSE" id="pFm-5a-Kiy"/>
-                        <outlet property="notificationToolbarButton" destination="cEr-3A-etE" id="fu7-n3-GPf"/>
-                        <segue destination="dKn-Iq-olY" kind="show" identifier="NotifToHomeSegue" id="fjo-iJ-WK8"/>
-                        <segue destination="jqw-2a-aTN" kind="show" identifier="NotifToAccountSegue" id="eyy-vN-FUS"/>
-                        <segue destination="fQk-Uc-2bB" kind="show" identifier="NotifToMessageSegue" id="e8j-eL-zXS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="czr-J9-tvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5454" y="185"/>
         </scene>
         <!--Add Listing View Controller-->
         <scene sceneID="Oux-dE-j8W">
@@ -883,13 +801,6 @@
                                 <action selector="messageToolbarButtonTapped:" destination="jqw-2a-aTN" id="ksL-0N-zY9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eC9-tH-RB1"/>
-                        <barButtonItem image="bell.badge" catalog="system" id="F9l-qR-f3A">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="notificationToolbarButtonTapped:" destination="jqw-2a-aTN" id="EaE-cU-q6f"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="MWs-oW-rd7"/>
                         <barButtonItem image="person.fill" catalog="system" id="chD-O9-ozR">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -907,12 +818,10 @@
                         <outlet property="bookmarksLabel" destination="wg8-7L-QvB" id="dhN-Dc-dZK"/>
                         <outlet property="homeToolbarButton" destination="szX-lm-eBP" id="1q7-54-4bC"/>
                         <outlet property="messageToolbarButton" destination="LoK-YW-mfx" id="rtd-Or-Mtf"/>
-                        <outlet property="notificationToolbarButton" destination="F9l-qR-f3A" id="kw3-hs-zrd"/>
                         <outlet property="profileImage" destination="8Hq-su-xh3" id="878-Dc-b00"/>
                         <outlet property="profileName" destination="Uw0-kR-cbM" id="gUq-ow-zLg"/>
                         <outlet property="settingsButton" destination="Pqb-6Z-SJQ" id="OJN-DK-mRm"/>
                         <outlet property="username" destination="1CM-GF-P8M" id="vJV-jD-Dcq"/>
-                        <segue destination="Pwx-aj-EoT" kind="show" identifier="AccountToNotifSegue" id="wiD-Vn-U06"/>
                         <segue destination="dKn-Iq-olY" kind="show" identifier="AccountToHomeSegue" id="22U-Fw-2EF"/>
                         <segue destination="AZu-8D-Fjh" kind="presentation" identifier="AccountToSettingsSegue" id="TID-wM-okL"/>
                         <segue destination="vXy-kE-dAm" kind="presentation" identifier="AccountToAddListingSegue" id="fmx-9S-fa6"/>
@@ -1020,13 +929,6 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JJG-Pc-BnD"/>
-                        <barButtonItem image="bell.badge" catalog="system" id="xnO-bm-QSR">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="notificationToolbarButtonTapped:" destination="IS0-Wo-XAU" id="JmH-eW-8IN"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="zjm-hS-n2J"/>
                         <barButtonItem image="person.fill" catalog="system" id="sLi-z7-jtS">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -1043,7 +945,6 @@
                         <outlet property="bioTextView" destination="i9E-Pq-Zae" id="Ymq-Nd-OMz"/>
                         <outlet property="homeToolbarButton" destination="BbD-nf-aAy" id="u5b-54-hX8"/>
                         <outlet property="messageToolbarButton" destination="DVN-li-cEP" id="T2b-zx-Oim"/>
-                        <outlet property="notificationToolbarButton" destination="xnO-bm-QSR" id="In9-dP-3nU"/>
                         <outlet property="profileImage" destination="WHT-Wf-cOX" id="S3s-2l-HNH"/>
                         <outlet property="profileName" destination="GX1-xX-ATk" id="hik-oO-8E4"/>
                         <outlet property="settingsButton" destination="0bB-Vd-SgV" id="bwc-h2-ihE"/>
@@ -1317,14 +1218,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ryf-fH-oMZ"/>
-        <segue reference="jgv-K2-tSV"/>
-        <segue reference="wiD-Vn-U06"/>
+        <segue reference="Y2b-0I-tep"/>
         <segue reference="msa-ay-ZsM"/>
         <segue reference="Yyc-4D-508"/>
         <segue reference="22U-Fw-2EF"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bell.badge" catalog="system" width="128" height="124"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>

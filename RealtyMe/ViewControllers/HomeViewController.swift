@@ -30,7 +30,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
     @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     
     let db = Firestore.firestore()
@@ -159,10 +158,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     @IBAction func messageToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "HomeMessageSegue", sender: nil)
-    }
-    
-    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "HomeToNotifSegue", sender: nil)
     }
     
     @IBAction func accountToolbarButtonTapped(_ sender: Any) {

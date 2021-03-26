@@ -15,8 +15,6 @@ class MessageViewController: UIViewController {
     
     @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
     
-    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
-    
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +40,6 @@ class MessageViewController: UIViewController {
     
     @IBAction func messageToolbarButtonTapped(_ sender: Any) {
         //do nothing
-    }
-    
-    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "MessageToNotifSegue", sender: nil)
     }
     @IBAction func accountToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "MessageToAccountSegue", sender: nil)

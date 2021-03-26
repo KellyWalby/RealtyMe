@@ -64,7 +64,6 @@ class AccountViewController: UIViewController, UICollectionViewDelegateFlowLayou
     @IBOutlet weak var addListingButton: UIButton!
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
     @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
-    @IBOutlet weak var notificationToolbarButton: UIBarButtonItem!
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var bookmarksLabel: UILabel!
@@ -291,9 +290,6 @@ class AccountViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     @IBAction func messageToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AccountToMessageSegue", sender: nil)
-    }
-    @IBAction func notificationToolbarButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "AccountToNotifSegue", sender: nil)
     }
     @IBAction func settingsButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AccountToSettingsSegue", sender: nil)
