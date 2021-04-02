@@ -7,32 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
-class MessageViewController: UIViewController {
+class MessageViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Hello"
+        return cell
+    }
+    
     
     
     @IBOutlet weak var homeToolbarButton: UIBarButtonItem!
-    
     @IBOutlet weak var messageToolbarButton: UIBarButtonItem!
-    
     @IBOutlet weak var accountToolbarButton: UIBarButtonItem!
+    
+    let db = Firestore.firestore()
+    var tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.frame = self.view.frame
+        tableView.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func homeToolbarButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "MessageToHomeSegue", sender: nil)
