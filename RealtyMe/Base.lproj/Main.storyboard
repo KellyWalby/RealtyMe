@@ -329,7 +329,6 @@
         <!--Home View Controller-->
         <scene sceneID="v7O-rl-7oh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="dKn-Iq-olY" customClass="HomeViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dN6-Io-s3i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -370,6 +369,7 @@
                         <segue destination="YKp-et-oNz" kind="show" identifier="HomeToListingDetails" id="z5u-Nj-i5c"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-4a-9be" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4486.9565217391309" y="156.02678571428569"/>
         </scene>
@@ -568,11 +568,59 @@
                         <outlet property="messageToolbarButton" destination="dlt-Kf-P0j" id="9ul-Bk-8Ig"/>
                         <segue destination="dKn-Iq-olY" kind="show" identifier="MessageToHomeSegue" id="wgT-AV-htG"/>
                         <segue destination="jqw-2a-aTN" kind="show" identifier="MessageToAccountSegue" id="Y2b-0I-tep"/>
+                        <segue destination="eRs-5s-0zN" kind="show" identifier="MessageTableToMessageChain" id="Kby-aU-sVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFQ-Rd-ZLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5454" y="-504"/>
+            <point key="canvasLocation" x="5577" y="-504"/>
+        </scene>
+        <!--Message Thread View Controller-->
+        <scene sceneID="0BW-oV-7k9">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="eRs-5s-0zN" customClass="MessageThreadViewController" customModule="RealtyMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="emg-77-98h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WYa-kJ-iVV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem image="house" catalog="system" id="jdh-gv-8wn">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="homeToolbarButtonTapped:" destination="eRs-5s-0zN" id="0Lp-mu-qY1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="N3a-oO-ZNG"/>
+                        <barButtonItem image="message" catalog="system" id="nXj-aX-17D">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="messageToolbarButtonTapped:" destination="eRs-5s-0zN" id="cbu-vL-zZG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="GgB-tq-7b1"/>
+                        <barButtonItem image="person.fill" catalog="system" id="DJs-ES-bow">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="accountToolbarButtonTapped:" destination="eRs-5s-0zN" id="XFd-Wf-i4e"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="etp-cZ-6Vq"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="accountToolbarButton" destination="DJs-ES-bow" id="w6w-Ec-BxX"/>
+                        <outlet property="homeToolbarButton" destination="jdh-gv-8wn" id="Icq-a9-1WL"/>
+                        <outlet property="messageToolbarButton" destination="nXj-aX-17D" id="bJh-cV-HJ3"/>
+                        <segue destination="fQk-Uc-2bB" kind="show" identifier="MessageChainToMessage" id="i1w-hc-eLl"/>
+                        <segue destination="jqw-2a-aTN" kind="show" identifier="MessageChainToAccount" id="jWT-Qt-l8x"/>
+                        <segue destination="dKn-Iq-olY" kind="show" identifier="MessageChainToHome" id="pea-U9-y0B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C13-FE-fG9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7300.0000000000009" y="-504.24107142857139"/>
         </scene>
         <!--Add Listing View Controller-->
         <scene sceneID="Oux-dE-j8W">
@@ -1218,10 +1266,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ryf-fH-oMZ"/>
-        <segue reference="Y2b-0I-tep"/>
-        <segue reference="msa-ay-ZsM"/>
+        <segue reference="jWT-Qt-l8x"/>
+        <segue reference="i1w-hc-eLl"/>
         <segue reference="Yyc-4D-508"/>
-        <segue reference="22U-Fw-2EF"/>
+        <segue reference="pea-U9-y0B"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

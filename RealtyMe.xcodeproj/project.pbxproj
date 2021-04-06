@@ -12,6 +12,7 @@
 		3B24EA4625E0696A000AE37B /* OtherUserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */; };
 		3B38775025FBC8BB00A5FDF3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B38774F25FBC8BB00A5FDF3 /* AccountViewController.swift */; };
 		3B449E1025FBC56400C944A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B449E0F25FBC56400C944A7 /* GoogleService-Info.plist */; };
+		3B58CF3A261CDE830026469A /* MessageThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B58CF39261CDE830026469A /* MessageThreadViewController.swift */; };
 		3B60879025D1D10A00C4183C /* forgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */; };
 		3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532725AE0A730041A10B /* AppDelegate.swift */; };
 		3B65532A25AE0A730041A10B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65532925AE0A730041A10B /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 		3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserAccountViewController.swift; sourceTree = "<group>"; };
 		3B38774F25FBC8BB00A5FDF3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3B449E0F25FBC56400C944A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B58CF39261CDE830026469A /* MessageThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadViewController.swift; sourceTree = "<group>"; };
 		3B60878F25D1D10A00C4183C /* forgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassViewController.swift; sourceTree = "<group>"; };
 		3B65532425AE0A730041A10B /* RealtyMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtyMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B65532725AE0A730041A10B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				3BE0DD3425DB335900B7F5FF /* AccountSettingsViewController.swift */,
 				3B24EA4525E0696A000AE37B /* OtherUserAccountViewController.swift */,
 				3BA9FAB3260A795900BF6896 /* listingDetailsViewController.swift */,
+				3B58CF39261CDE830026469A /* MessageThreadViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B58CF3A261CDE830026469A /* MessageThreadViewController.swift in Sources */,
 				3BE0DD3525DB335900B7F5FF /* AccountSettingsViewController.swift in Sources */,
 				3B65532C25AE0A730041A10B /* ViewController.swift in Sources */,
 				3B65532825AE0A730041A10B /* AppDelegate.swift in Sources */,
